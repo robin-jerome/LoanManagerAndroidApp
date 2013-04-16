@@ -1,13 +1,16 @@
-package msp.Entity;
+package msp.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Group {
+public class Group implements Serializable{
 
+	private int id;
 	private ArrayList<Person> persons = new ArrayList<Person>();
 	private String groupName;
+	private String info;
 	
-	public Group(){
+	public Group(){		
 		
 	}
 
@@ -25,6 +28,22 @@ public class Group {
 
 	public void setGroupName(String groupName) {
 		this.groupName = groupName;
+	}
+
+	public String getInfo() {
+		return info;
+	}
+
+	public void setInfo(String info) {
+		this.info = info;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	
