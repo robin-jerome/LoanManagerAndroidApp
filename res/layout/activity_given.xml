@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  
+       xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="fill_parent"
+       android:layout_height="?android:attr/listPreferredItemHeight">
+       
+       <ImageView
+           android:id="@+id/icon"
+           android:layout_width="?android:attr/listPreferredItemHeight"
+           android:layout_height="fill_parent"
+           android:layout_alignParentLeft="true"
+           android:layout_margin="5dp"
+           android:src="@drawable/reduced_male_user_icon" />
+
+       <TextView android:id="@+id/name"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:layout_toRightOf="@id/icon"
+             android:gravity="center_vertical"
+             android:textAppearance="?android:attr/textAppearanceLarge"
+             android:singleLine="true" />
+</RelativeLayout>
