@@ -1,4 +1,4 @@
-package msp.entity;
+package msp.object;
 
 public class Person {
 
