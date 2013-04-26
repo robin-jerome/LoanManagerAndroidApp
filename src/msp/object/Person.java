@@ -4,6 +4,7 @@ public class Person {
 
 	private int id;
 	private String name;
+	private String info;
 	
 	public Person(){
 		
@@ -26,7 +27,5 @@ public class Person {
 	}
 	public void setInfo(String info) {
 		this.info = info;
-	}
-	private String info;
-	
+	}	
 }

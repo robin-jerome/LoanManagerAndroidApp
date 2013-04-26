@@ -5,8 +5,8 @@ import java.io.Serializable;
 public class Loan implements Serializable{
 
 	private int id;
-	private Person person = new Person();
-	private Group group = new Group();
+	private int person_id;
+	private int group_id;
 	private String itemName;
 	private int cathegory;
 	private int amount;
@@ -18,20 +18,20 @@ public class Loan implements Serializable{
 		
 	}
 
-	public Person getPerson() {
-		return person;
+	public int getPerson_id() {
+		return person_id;
 	}
 
-	public void setPerson(Person person) {
-		this.person = person;
+	public void setPerson_id(int person_id) {
+		this.person_id = person_id;
 	}
 
-	public Group getGroup() {
-		return group;
+	public int getGroup_id() {
+		return group_id;
 	}
 
-	public void setGroup(Group group) {
-		this.group = group;
+	public void setGroup_id(int group_id) {
+		this.group_id = group_id;
 	}
 
 	public String getItemName() {

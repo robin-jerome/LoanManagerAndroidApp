@@ -5,8 +5,10 @@ import java.util.ArrayList;
 
 public class Group implements Serializable{
 
+	private int groups_size = 10;
+	
 	private int id;
-	private ArrayList<Person> persons = new ArrayList<Person>();
+	private int persons_id [] = new int[groups_size];
 	private String groupName;
 	private String info;
 	
@@ -14,14 +16,19 @@ public class Group implements Serializable{
 		
 	}
 
-	public ArrayList<Person> getPersons() {
-		return persons;
+	public void addPerson(int id){
+		for(int i=0; i<groups_size; i++){
+			if(this.persons_id[i] == 0){
+				this.persons_id[i] = id;
+				return;
+			}
+		}
 	}
-
-	public void setPersons(ArrayList<Person> persons) {
-		this.persons = persons;
+	
+	public int[] getPersons(){
+		return this.persons_id;
 	}
-
+	
 	public String getGroupName() {
 		return groupName;
 	}
@@ -44,7 +51,5 @@ public class Group implements Serializable{
 
 	public void setId(int id) {
 		this.id = id;
-	}
-	
-	
+	}	
 }
