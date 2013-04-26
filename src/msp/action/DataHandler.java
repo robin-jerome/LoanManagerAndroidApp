@@ -34,15 +34,13 @@ public class DataHandler {
 		
 		File dir = new File(filePath);
 		String[] children = dir.list();
-//		int position = 0;
 		if (children == null) {
 		} else {
 			for (int i = 0; i < children.length; i++) {
-				String fileName = children[i];
-				
-				//at first I need to specify which files
-				loans.add(readLoan(fileName));
-				
+				String fileName = children[i];				
+				if(fileName.startsWith("l")){
+					loans.add(readLoan(fileName));
+				}
 			}
 		}
 		return loans;
@@ -82,15 +80,14 @@ public class DataHandler {
 		
 		File dir = new File(filePath);
 		String[] children = dir.list();
-//		int position = 0;
 		if (children == null) {
+			System.out.println("No files with Persons");
 		} else {
 			for (int i = 0; i < children.length; i++) {
 				String fileName = children[i];
-				
-				//at first I need to specify which files
-				persons.add(readPerson(fileName));
-				
+				if(fileName.startsWith("p")){
+					persons.add(readPerson(fileName));
+				}				
 			}
 		}
 		return persons;
@@ -130,15 +127,13 @@ public class DataHandler {
 		
 		File dir = new File(filePath);
 		String[] children = dir.list();
-//		int position = 0;
 		if (children == null) {
 		} else {
 			for (int i = 0; i < children.length; i++) {
 				String fileName = children[i];
-				
-				//at first I need to specify which files
-				groups.add(readGroup(fileName));
-				
+				if(fileName.startsWith("g")){
+					groups.add(readGroup(fileName));
+				}
 			}
 		}
 		return groups;

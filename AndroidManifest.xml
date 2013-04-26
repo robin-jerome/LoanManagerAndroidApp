@@ -22,8 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="Given"></activity>
-        <activity android:name="Taken"></activity>
+        <activity android:name="msp.loanmanager.Given" >
+        </activity>
+        <activity android:name="msp.loanmanager.Taken" >
+        </activity>
+        <activity android:name="msp.loanmanager.AddPersonActivity" >
+        </activity>
+        <activity android:name="msp.loanmanager.AddGroupActivity" >
+        </activity>
     </application>
 
 </manifest>
