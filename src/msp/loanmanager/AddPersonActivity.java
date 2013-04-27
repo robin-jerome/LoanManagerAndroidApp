@@ -41,6 +41,7 @@ public class AddPersonActivity extends Activity {
 		    	 EditText info = (EditText)findViewById(R.id.add_person_info);
 		    	 person.setInfo(info.getText().toString());		    
 		    	 MainActivity.persons.add(person);
+		    	 System.out.println("Vysledna cesta je: " + fileName + Integer.toString(id));
 		    	 handler.writePerson(fileName + Integer.toString(id), person);
 		     Intent intent = new Intent(AddPersonActivity.this, MainActivity.class);	
 		     startActivity(intent);
