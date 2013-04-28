@@ -56,9 +56,9 @@ public class AddGroupActivity extends Activity {
 		    	 if (MainActivity.groups.size() == 0){
 		    		 id = 1000;
 		    	 }else{
-		    		 id = MainActivity.groups.get(MainActivity.groups.size()-1).getId();		    		
+		    		 id = MainActivity.groups.get(MainActivity.groups.size()-1).getId() + 1;		    		
 		    	 }
-		    	 group.setId(1000);
+		    	 group.setId(id);
 		    	 EditText name = (EditText)findViewById(R.id.add_group_name);
 		    	 group.setGroupName(name.getText().toString());
 		    	 EditText info = (EditText)findViewById(R.id.add_group_info);
@@ -72,11 +72,12 @@ public class AddGroupActivity extends Activity {
 		    		 }
 		    	 }		    	 
 		    	 
-		    	 System.out.println("Vysledna cesta je: " + fileName + Integer.toString(id));
+		    	 System.out.println("Path is: " + fileName + Integer.toString(id));
 		    	 MainActivity.groups.add(group);		    	
 		    	 handler.writeGroup(fileName + Integer.toString(id), group);
-		     Intent intent = new Intent(AddGroupActivity.this, MainActivity.class);	
-		     startActivity(intent);
+		    	 
+			     Intent intent = new Intent(AddGroupActivity.this, MainActivity.class);	
+			     startActivity(intent);
 		     }
 		 });
 		

@@ -33,18 +33,20 @@ public class AddPersonActivity extends Activity {
 		    	 if (MainActivity.persons.size() == 0){
 		    		 id = 1000;
 		    	 }else{
-		    		 id = MainActivity.persons.get(MainActivity.persons.size()-1).getId();		    		
+		    		 id = MainActivity.persons.get(MainActivity.persons.size()-1).getId() + 1;		    		
 		    	 }
-		    	 person.setId(1000);
+		    	 person.setId(id);
 		    	 EditText name = (EditText)findViewById(R.id.add_person_name);
 		    	 person.setName(name.getText().toString());
 		    	 EditText info = (EditText)findViewById(R.id.add_person_info);
-		    	 person.setInfo(info.getText().toString());		    
+		    	 person.setInfo(info.getText().toString());	
+		    	 
 		    	 MainActivity.persons.add(person);
-		    	 System.out.println("Vysledna cesta je: " + fileName + Integer.toString(id));
+		    	 System.out.println("Path is: " + fileName + Integer.toString(id));
 		    	 handler.writePerson(fileName + Integer.toString(id), person);
-		     Intent intent = new Intent(AddPersonActivity.this, MainActivity.class);	
-		     startActivity(intent);
+		    	 
+			     Intent intent = new Intent(AddPersonActivity.this, MainActivity.class);	
+			     startActivity(intent);
 		     }
 		 });
         

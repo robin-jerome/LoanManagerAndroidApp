@@ -32,6 +32,12 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		File file = new File(PATH);
+		if (!file.exists()) {
+			file.mkdirs();
+			System.out.println("I have created directory.");
+		}
+		
 		if(persons == null){
 			persons = dataHandler.readPersons(PATH);
 			groups = dataHandler.readGroups(PATH);
