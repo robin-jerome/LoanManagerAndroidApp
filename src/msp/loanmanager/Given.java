@@ -1,21 +1,32 @@
-package msp.loanmanager; //Change name according to others
+package msp.loanmanager;
 
+import java.util.ArrayList;
+
+import msp.action.DataHandler;
+import msp.object.Person;
 import android.app.ListActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.widget.ArrayAdapter;
 
-public class Given extends ListActivity {
+public class Given extends ListActivity {  //ListPersons
+	private DataHandler handler = new DataHandler();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_given); //Change name to others
+		setContentView(R.layout.activity_given);
+		
+		ArrayList<Person> personstolist = new ArrayList<Person>();
+		personstolist=handler.readPersons("filenombres.txt");
+		String namestolist[] = new String[personstolist.size()+1];
+		for (int i = 0; i < personstolist.size(); i++)
+			 namestolist[i] = personstolist.get(i).getName();
+
 		setListAdapter(
                 new ArrayAdapter<String>(this,
-                      R.layout.activity_given, //Change name according to others
-                      R.id.name/*,
-                      OurProyect.store.givennames(10)*/)); //From 0 to the last name
+                      R.layout.activity_given,
+                      R.id.name,  //In the layout
+                      namestolist)); //From 0 to the last name
 	}
 
 	/*@Override
