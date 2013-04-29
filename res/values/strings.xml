@@ -6,5 +6,10 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_add_person">AddPersonActivity</string>
     <string name="title_activity_add_group">AddGroupActivity</string>
+    <string name="title_activity_group_list">GroupListActivity</string>
+    <string name="title_activity_person_list">PersonListActivity</string>
+    <string name="button_add_gp">+</string>
+    <string name="groups">Groups</string>
+    <string name="persons">Persons</string>
 
 </resources>

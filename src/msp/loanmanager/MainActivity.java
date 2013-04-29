@@ -30,43 +30,54 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.welcome_screen);
 		
 		File file = new File(PATH);
 		if (!file.exists()) {
 			file.mkdirs();
 			System.out.println("I have created directory.");
-		}
+			persons = new ArrayList<Person>();
+			groups = new ArrayList<Group>();
+			loans = new ArrayList<Loan>();
+		}else{
+			System.out.println("Directory already exists");
+			if(persons == null){
+				System.out.println("Reading data from files");
+				persons = dataHandler.readPersons(PATH);
+				groups = dataHandler.readGroups(PATH);
+				loans = dataHandler.readLoans(PATH);
+			}	
+		}			
 		
-		if(persons == null){
-			persons = dataHandler.readPersons(PATH);
-			groups = dataHandler.readGroups(PATH);
-			loans = dataHandler.readLoans(PATH);
-		}
-		Button addPer = (Button)findViewById(R.id.button1);
-		
-		addPer.setOnClickListener(new View.OnClickListener() {
-		     @Override
-		     public void onClick(View v) {		    	 
-		     Intent intent = new Intent(MainActivity.this, AddPersonActivity.class);	
-//		     intent.putExtra("type", "all");
-		     startActivity(intent);
-		     }
-		 });
-		
-		Button addGroup = (Button)findViewById(R.id.button2);
-		
-		addGroup.setOnClickListener(new View.OnClickListener() {
-		     @Override
-		     public void onClick(View v) {		    	 
-		     Intent intent = new Intent(MainActivity.this, AddGroupActivity.class);	
-//		     intent.putExtra("type", "all");
-		     startActivity(intent);
-		     }
-		 });
-		
-		
-		
+		Thread timer = new Thread() {			// Now this is looking for "run()" function, so we gotta define that.
+			public void run() {
+				try {
+					sleep(3000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				} 
+
+				Class ourClass;
+				try {
+					ourClass = Class.forName("msp.loanmanager.MainMenuActivity");
+					Intent ourIntent = new Intent(MainActivity.this, ourClass);
+					startActivity(ourIntent);
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+		};
+		timer.start();
+	}
+
+	
+	@Override
+	protected void onPause() {					//	Function called before switching over the activity
+		// TODO Auto-generated method stub
+		super.onPause();
+		finish();							// We are trying to kill the old activity here ...
 	}
 
 	@Override

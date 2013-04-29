@@ -63,7 +63,7 @@ public class AddGroupActivity extends Activity {
 		    	 group.setGroupName(name.getText().toString());
 		    	 EditText info = (EditText)findViewById(R.id.add_group_info);
 		    	 group.setInfo(info.getText().toString());	
-		    	 group.addPerson(id);
+//		    	 group.addPerson(id);
 		    	 TableLayout tl = (TableLayout)findViewById(R.id.add_group_choose_persons_table);
 		    	 for(int i=0; i<tl.getChildCount(); i++){
 		    		 CheckBox check = (CheckBox) ((TableRow)tl.getChildAt(i)).getChildAt(0);
@@ -76,7 +76,9 @@ public class AddGroupActivity extends Activity {
 		    	 MainActivity.groups.add(group);		    	
 		    	 handler.writeGroup(fileName + Integer.toString(id), group);
 		    	 
-			     Intent intent = new Intent(AddGroupActivity.this, MainActivity.class);	
+		    	 System.out.println("Everything is ok");
+		    	 
+			     Intent intent = new Intent(AddGroupActivity.this, GroupListActivity.class);	
 			     startActivity(intent);
 		     }
 		 });

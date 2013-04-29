@@ -1,48 +1,128 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#110101"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/button1"
-        android:layout_below="@+id/button1"
-        android:layout_marginTop="20dp"
-        android:text="List persons" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+    
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignLeft="@+id/bGive"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="41dp"
-        android:text="Add person" />
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/welcome" />
+	
+    <LinearLayout 
+        android:id="@+id/lLayout1"
+        android:layout_width="match_parent"		
+        android:layout_below="@+id/imageView1"
+        android:layout_height="wrap_content"    
+        android:weightSum="100"	>
+        
+	    <Button
+	        android:id="@+id/bGive"
+	        android:layout_width="wrap_content"
+	        android:layout_weight="50"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="2dp"
+	        android:text="Give" />
+	
+	    <Button
+	        android:id="@+id/bGive2"
+	        android:layout_width="wrap_content"
+	        android:layout_weight="50"
+	        android:layout_height="wrap_content"
+	        android:layout_toRightOf="@+id/bGive"
+	        android:layout_marginLeft="2dp"
+	        android:text="Given loans" 
+        />
+	</LinearLayout>
+    
+    <LinearLayout 
+        android:id="@+id/lLayout2"
+        android:layout_width="match_parent"		
+        android:layout_below="@+id/lLayout1"
+        android:layout_height="wrap_content"    
+        android:weightSum="100"	>
+    
+	    <Button
+	        android:id="@+id/bTake"
+	        android:layout_width="wrap_content"
+	        android:layout_weight="50"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="2dp"
+	        android:text="Take" />
+	
+	    <Button
+	        android:id="@+id/bTake2"
+	        android:layout_width="wrap_content"
+	        android:layout_weight="50"
+	        android:layout_height="wrap_content"
+	        android:layout_toRightOf="@+id/bTake"
+	        android:layout_marginLeft="2dp"
+	        android:text="Taken loans" 
+	        />
+	</LinearLayout>
+    
+	<LinearLayout 
+        android:id="@+id/lLayout3"
+        android:layout_width="match_parent"		
+        android:layout_below="@+id/lLayout2"
+        android:layout_height="wrap_content"    
+        android:weightSum="100"	>
+    
+	    <Button
+	        android:id="@+id/bDeadlines"
+	        android:layout_width="wrap_content"
+	        android:layout_weight="50"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="2dp"
+	        android:text="Upcoming Deadlines" />
+	
+	    <Button
+	        android:id="@+id/bsLoans"
+	        android:layout_width="wrap_content"
+	        android:layout_weight="50"
+	        android:layout_height="wrap_content"
+	        android:layout_toRightOf="@+id/bDeadlines"
+	        android:layout_marginLeft="2dp"
+	        android:text="Settled loans" 
+	        />
+	    
+	</LinearLayout>
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button1"
-        android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@+id/button1"
-        android:text="Add group" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button3"
-        android:layout_alignBottom="@+id/button3"
-        android:layout_alignLeft="@+id/button2"
-        android:text="List groups" />
-
+	<LinearLayout 
+        android:id="@+id/lLayout4"
+        android:layout_width="match_parent"		
+        android:layout_below="@+id/lLayout3"
+        android:layout_height="wrap_content"    
+        android:weightSum="100"	>
+    
+	    <Button
+	        android:id="@+id/bGroups"
+	        android:layout_width="wrap_content"
+	        android:layout_weight="50"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="2dp"
+	        android:text="My Groups" />
+	
+	    <Button
+	        android:id="@+id/bPersons"
+	        android:layout_width="wrap_content"
+	        android:layout_weight="50"
+	        android:layout_height="wrap_content"
+	        android:layout_toRightOf="@+id/bGroups"
+	        android:layout_marginLeft="2dp"
+	        android:text="My Persons" 
+	        />
+	    
+	</LinearLayout> 
+	   
 </RelativeLayout>

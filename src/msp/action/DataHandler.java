@@ -146,7 +146,7 @@ public class DataHandler {
 			ObjectInputStream ois = new ObjectInputStream(fin);
 			group = (Group) ois.readObject();
 			ois.close();
-		} catch (Exception e) {
+		} catch (Exception e) {		
 			e.printStackTrace();
 		}
 		return group;

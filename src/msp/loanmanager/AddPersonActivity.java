@@ -45,7 +45,7 @@ public class AddPersonActivity extends Activity {
 		    	 System.out.println("Path is: " + fileName + Integer.toString(id));
 		    	 handler.writePerson(fileName + Integer.toString(id), person);
 		    	 
-			     Intent intent = new Intent(AddPersonActivity.this, MainActivity.class);	
+			     Intent intent = new Intent(AddPersonActivity.this, PersonListActivity.class);	
 			     startActivity(intent);
 		     }
 		 });
