@@ -58,40 +58,40 @@ public class GroupListActivity extends Activity {
             tl.addView(tr);
 		}else{
 			for(int i=0; i<MainActivity.groups.size(); i++){
-				
-				 TableRow tr = new TableRow(this);
+				TableRow tr = new TableRow(this);
 
-		            TableLayout.LayoutParams tableRowParams = new TableLayout.LayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-	         		
-		            if(i+1 == MainActivity.groups.size()){
-		            	 tableRowParams.setMargins(0, 0, 0, 0);  
-		            }else{
-		            	tableRowParams.setMargins(0, 0, 0, 5); 
-		            }       		
-	         		tr.setLayoutParams(tableRowParams);            
-		            tr.setBackgroundColor(Color.LTGRAY);		            		            
-		   	            	
-	            	TextView name = new TextView(this);	    
-	            	LayoutParams lineparams = new TableRow.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-	            	name.setLayoutParams(lineparams);
-	            	name.setText(MainActivity.groups.get(i).getGroupName());
-	            	name.setTypeface(Typeface.DEFAULT_BOLD);		            	
-	            	name.setTextSize(16);		            	            
-		            name.setTextColor(Color.BLACK);
-		            name.setGravity(Gravity.LEFT);
-		            name.setPadding(5, 0, 5, 0); 
-		            tr.addView(name);
-		
-		            TextView number = new TextView(this);	     
-		            LayoutParams numberparams = new TableRow.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-		            number.setLayoutParams(numberparams);
-		            number.setText(Integer.toString(MainActivity.groups.get(i).getPersonsCount()));
-		            number.setTextColor(Color.BLACK);
-		            number.setGravity(Gravity.RIGHT);
-		            number.setPadding(5, 0, 5, 0); 
-		            tr.addView(number);		
-		            
-		            tl.addView(tr);	 
+	            TableLayout.LayoutParams tableRowParams = new TableLayout.LayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+         		
+	            if(i+1 == MainActivity.groups.size()){
+	            	 tableRowParams.setMargins(0, 0, 0, 0);  
+	            }else{
+	            	tableRowParams.setMargins(0, 0, 0, 5); 
+	            }       		
+         		tr.setLayoutParams(tableRowParams);            
+	            tr.setBackgroundColor(Color.LTGRAY);		            		            
+	   	            	
+            	TextView name = new TextView(this);            	
+            	LayoutParams lineparams = new TableRow.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+            	name.setLayoutParams(lineparams);
+            	
+            	name.setText(MainActivity.groups.get(i).getGroupName());
+            	name.setTypeface(Typeface.DEFAULT_BOLD);		            	
+            	name.setTextSize(16);		            	            
+	            name.setTextColor(Color.BLACK);
+	            name.setGravity(Gravity.LEFT);
+	            name.setPadding(5, 0, 5, 0); 
+	            tr.addView(name);
+	
+	            TextView number = new TextView(this);	     
+	            LayoutParams numberparams = new TableRow.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+	            number.setLayoutParams(numberparams);
+	            number.setText(Integer.toString(MainActivity.groups.get(i).getPersonsCount()));
+	            number.setTextColor(Color.BLACK);
+	            number.setGravity(Gravity.RIGHT);
+	            number.setPadding(5, 0, 5, 0); 
+	            tr.addView(number);		
+	            
+	            tl.addView(tr);	 
 			}			
 		}
 	}

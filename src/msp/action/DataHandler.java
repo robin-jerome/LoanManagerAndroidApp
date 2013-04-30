@@ -39,7 +39,7 @@ public class DataHandler {
 			for (int i = 0; i < children.length; i++) {
 				String fileName = children[i];				
 				if(fileName.startsWith("l")){
-					loans.add(readLoan(fileName));
+					loans.add(readLoan(filePath + fileName));
 				}
 			}
 		}
@@ -86,7 +86,7 @@ public class DataHandler {
 			for (int i = 0; i < children.length; i++) {
 				String fileName = children[i];
 				if(fileName.startsWith("p")){
-					persons.add(readPerson(fileName));
+					persons.add(readPerson(filePath + fileName));
 				}				
 			}
 		}
@@ -132,7 +132,7 @@ public class DataHandler {
 			for (int i = 0; i < children.length; i++) {
 				String fileName = children[i];
 				if(fileName.startsWith("g")){
-					groups.add(readGroup(fileName));
+					groups.add(readGroup(filePath + fileName));
 				}
 			}
 		}
