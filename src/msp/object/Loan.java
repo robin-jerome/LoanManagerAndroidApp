@@ -5,33 +5,35 @@ import java.io.Serializable;
 public class Loan implements Serializable{
 
 	private int id;
-	private int person_id;
-	private int group_id;
+	private int fromPersonId;
+	private int toPersonId;
+	private int toGroupId;
 	private String itemName;
 	private int cathegory;
 	private int amount;
 	private String loanDate;
 	private String loanDue;
 	private String info;
+	private boolean settled;
 	
 	public Loan(){
 		
 	}
 
-	public int getPerson_id() {
-		return person_id;
+	public int getPersonId() {
+		return toPersonId;
 	}
 
-	public void setPerson_id(int person_id) {
-		this.person_id = person_id;
+	public void setPersonId(int person_id) {
+		this.toPersonId = person_id;
 	}
 
-	public int getGroup_id() {
-		return group_id;
+	public int getGroupId() {
+		return toGroupId;
 	}
 
-	public void setGroup_id(int group_id) {
-		this.group_id = group_id;
+	public void setGroupId(int group_id) {
+		this.toGroupId = group_id;
 	}
 
 	public String getItemName() {
@@ -88,6 +90,22 @@ public class Loan implements Serializable{
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public boolean isSettled() {
+		return settled;
+	}
+
+	public void setSettled(boolean settled) {
+		this.settled = settled;
+	}
+
+	public int getFromPersonId() {
+		return fromPersonId;
+	}
+
+	public void setFromPersonId(int fromPersonId) {
+		this.fromPersonId = fromPersonId;
 	}
 	
 }	

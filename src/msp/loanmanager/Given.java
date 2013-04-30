@@ -16,6 +16,10 @@ public class Given extends ListActivity {  //ListPersons
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_given);
 		
+		
+		
+//		int id = MainActivity.loans.get(0).getPerson_id();
+		
 		ArrayList<Person> personstolist = new ArrayList<Person>();
 		personstolist=handler.readPersons("filenombres.txt");
 		String namestolist[] = new String[personstolist.size()+1];

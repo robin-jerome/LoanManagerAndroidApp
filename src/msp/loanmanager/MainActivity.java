@@ -39,13 +39,23 @@ public class MainActivity extends Activity {
 			persons = new ArrayList<Person>();
 			groups = new ArrayList<Group>();
 			loans = new ArrayList<Loan>();
+			
+			if(persons.size()==0){
+				Person me = new Person();
+				me.setId(1000);
+				me.setName("Me");
+				me.setInfo("My personality :)");
+				persons.add(me);
+				DataHandler dh = new DataHandler();
+				dh.writePerson(PATH + "p1000", me);
+			}
 		}else{
 			System.out.println("Directory already exists");
 			if(persons == null){
 				System.out.println("Reading data from files");
 				persons = dataHandler.readPersons(PATH);
 				groups = dataHandler.readGroups(PATH);
-				loans = dataHandler.readLoans(PATH);
+				loans = dataHandler.readLoans(PATH);				
 			}	
 		}			
 		
