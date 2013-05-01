@@ -9,7 +9,7 @@
         android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -17,9 +17,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="msp.loanmanager.MainActivity"
-            android:label="@string/app_name" 
+            android:label="@string/app_name"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
-            
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,13 +37,21 @@
         </activity>
         <activity
             android:name="msp.loanmanager.GroupListActivity"
-            android:label="@string/title_activity_group_list" 
+            android:label="@string/title_activity_group_list"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
         <activity
             android:name="msp.loanmanager.PersonListActivity"
-            android:label="@string/title_activity_person_list" 
+            android:label="@string/title_activity_person_list"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="msp.loanmanager.GiveActivity"
+            android:label="@string/title_activity_give" >
+        </activity>
+        <activity
+            android:name="msp.loanmanager.TakeActivity"
+            android:label="@string/title_activity_take" >
         </activity>
     </application>
 

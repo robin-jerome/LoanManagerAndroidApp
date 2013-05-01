@@ -11,5 +11,7 @@
     <string name="button_add_gp">+</string>
     <string name="groups">Groups</string>
     <string name="persons">Persons</string>
+    <string name="title_activity_give">GiveActivity</string>
+    <string name="title_activity_take">TakeActivity</string>
 
 </resources>
