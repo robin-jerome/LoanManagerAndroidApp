@@ -15,7 +15,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 public class PersonListActivity extends Activity {
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -58,7 +58,8 @@ public class PersonListActivity extends Activity {
 			for(int i=0; i<MainActivity.persons.size(); i++){
 				
 				 TableRow tr = new TableRow(this);
-
+				 tr.setId(MainActivity.persons.get(i).getId());
+				 
 		            TableLayout.LayoutParams tableRowParams = new TableLayout.LayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 	         		
 		            if(i+1 == MainActivity.persons.size()){
@@ -75,11 +76,21 @@ public class PersonListActivity extends Activity {
 	            	name.setLayoutParams(lineparams);
 	            	name.setText(MainActivity.persons.get(i).getName());
 	            	name.setTypeface(Typeface.DEFAULT_BOLD);		            	
-	            	name.setTextSize(16);		            	            
+	            	name.setTextSize(20);		            	            
 		            name.setTextColor(Color.BLACK);
 		            name.setGravity(Gravity.LEFT);
 		            name.setPadding(5, 0, 5, 0); 
 		            tr.addView(name);	
+		          
+		            tr.setOnClickListener(new View.OnClickListener() {
+			   		     @Override
+			   		     public void onClick(View v) {		    	 
+				   		     Intent intent = new Intent(PersonListActivity.this, AddPersonActivity.class);
+				   		     intent.putExtra("person_id", ((TableRow)v).getId());
+				   		     startActivity(intent);
+			   		     }
+		   		 	});
+		            
 		            
 		            tl.addView(tr);	 
 			}			

@@ -3,6 +3,7 @@ package msp.loanmanager;
 import java.io.File;
 
 import msp.action.DataHandler;
+import msp.action.Functions;
 import msp.object.Person;
 import android.os.Bundle;
 import android.app.Activity;
@@ -16,12 +17,23 @@ public class AddPersonActivity extends Activity {
 
 	private DataHandler handler = new DataHandler();
 	private String fileName = MainActivity.PATH + "p";
+	private int id;
 	 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_person);
-          
+        
+        Bundle extras = getIntent().getExtras();        
+
+        if (extras != null) {
+            id = extras.getInt("person_id");
+            Person person = Functions.findPersonById(id);
+            EditText name = (EditText)findViewById(R.id.add_person_name);
+            name.setText(person.getName());
+            EditText info = (EditText)findViewById(R.id.add_person_info);
+	    	person.setInfo(person.getInfo());	
+        }
         
 		Button add = (Button)findViewById(R.id.add_person_confirm);
 		
@@ -29,10 +41,8 @@ public class AddPersonActivity extends Activity {
 		     @Override
 		     public void onClick(View v) {
 		    	 Person person = new Person();
-		    	 int id;
-		    	 if (MainActivity.persons.size() == 0){
-		    		 id = 1000;
-		    	 }else{
+		    	
+		    	 if (id == 0){	    	 
 		    		 id = MainActivity.persons.get(MainActivity.persons.size()-1).getId() + 1;		    		
 		    	 }
 		    	 person.setId(id);
@@ -43,6 +53,8 @@ public class AddPersonActivity extends Activity {
 		    	 
 		    	 MainActivity.persons.add(person);
 		    	 System.out.println("Path is: " + fileName + Integer.toString(id));
+		    	 
+		    	 
 		    	 handler.writePerson(fileName + Integer.toString(id), person);
 		    	 
 			     Intent intent = new Intent(AddPersonActivity.this, PersonListActivity.class);	

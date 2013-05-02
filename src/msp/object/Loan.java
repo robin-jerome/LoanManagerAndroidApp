@@ -10,7 +10,7 @@ public class Loan implements Serializable{
 	private int toGroupId;
 	private String itemName;
 	private int cathegory;
-	private int amount;
+	private float amount;
 	private String loanDate;
 	private String loanDue;
 	private String info;
@@ -20,19 +20,19 @@ public class Loan implements Serializable{
 		
 	}
 
-	public int getPersonId() {
+	public int getToPersonId() {
 		return toPersonId;
 	}
 
-	public void setPersonId(int person_id) {
+	public void setToPersonId(int person_id) {
 		this.toPersonId = person_id;
 	}
 
-	public int getGroupId() {
+	public int getToGroupId() {
 		return toGroupId;
 	}
 
-	public void setGroupId(int group_id) {
+	public void setToGroupId(int group_id) {
 		this.toGroupId = group_id;
 	}
 
@@ -52,11 +52,11 @@ public class Loan implements Serializable{
 		this.cathegory = cathegory;
 	}
 
-	public int getAmount() {
+	public float getAmount() {
 		return amount;
 	}
 
-	public void setAmount(int amount) {
+	public void setAmount(float amount) {
 		this.amount = amount;
 	}
 

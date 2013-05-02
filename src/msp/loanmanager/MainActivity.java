@@ -26,6 +26,7 @@ public class MainActivity extends Activity {
 	public static ArrayList<Person> persons = null;
 	public static ArrayList<Group> groups = null;
 	public static ArrayList<Loan> loans = null;
+	public static int me_ID = 1000;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +43,12 @@ public class MainActivity extends Activity {
 			
 			if(persons.size()==0){
 				Person me = new Person();
-				me.setId(1000);
+				me.setId(me_ID);
 				me.setName("Me");
 				me.setInfo("My personality :)");
 				persons.add(me);
 				DataHandler dh = new DataHandler();
-				dh.writePerson(PATH + "p1000", me);
+				dh.writePerson(PATH + "p" + Integer.toString(me_ID), me);
 			}
 		}else{
 			System.out.println("Directory already exists");

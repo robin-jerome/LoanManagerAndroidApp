@@ -76,7 +76,7 @@ public class GroupListActivity extends Activity {
             	
             	name.setText(MainActivity.groups.get(i).getGroupName());
             	name.setTypeface(Typeface.DEFAULT_BOLD);		            	
-            	name.setTextSize(16);		            	            
+            	name.setTextSize(20);		            	            
 	            name.setTextColor(Color.BLACK);
 	            name.setGravity(Gravity.LEFT);
 	            name.setPadding(5, 0, 5, 0); 
