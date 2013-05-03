@@ -72,8 +72,8 @@ public class PersonListActivity extends Activity {
 		            tr.setBackgroundColor(Color.LTGRAY);		            		            
 		   	            	
 	            	TextView name = new TextView(this);	    
-	            	LayoutParams lineparams = new TableRow.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-	            	name.setLayoutParams(lineparams);
+	            	LayoutParams nameparams = new TableRow.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+	            	name.setLayoutParams(nameparams);
 	            	name.setText(MainActivity.persons.get(i).getName());
 	            	name.setTypeface(Typeface.DEFAULT_BOLD);		            	
 	            	name.setTextSize(20);		            	            
@@ -85,7 +85,7 @@ public class PersonListActivity extends Activity {
 		            tr.setOnClickListener(new View.OnClickListener() {
 			   		     @Override
 			   		     public void onClick(View v) {		    	 
-				   		     Intent intent = new Intent(PersonListActivity.this, AddPersonActivity.class);
+				   		     Intent intent = new Intent(PersonListActivity.this, PersonDescriptionActivity.class);
 				   		     intent.putExtra("person_id", ((TableRow)v).getId());
 				   		     startActivity(intent);
 			   		     }

@@ -1,6 +1,7 @@
 package msp.loanmanager;
 
 import msp.action.DataHandler;
+import msp.action.Functions;
 import msp.object.Group;
 import msp.object.Person;
 import android.os.Bundle;
@@ -21,11 +22,24 @@ public class AddGroupActivity extends Activity {
 
 	private DataHandler handler = new DataHandler();
 	private String fileName = MainActivity.PATH + "g";
+	private Group egroup;
+	private int id;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_group);
+		
+		Bundle extras = getIntent().getExtras();        
+
+        if (extras != null) {
+            id = extras.getInt("group_id");           
+            egroup = Functions.findGroupById(id);
+            EditText name = (EditText)findViewById(R.id.add_group_name);
+            name.setText(egroup.getGroupName());
+            EditText info = (EditText)findViewById(R.id.add_group_info);
+            info.setText(egroup.getInfo());	
+        }
 		
 		TableLayout tl = (TableLayout) findViewById(R.id.add_group_choose_persons_table);
 			
@@ -36,6 +50,9 @@ public class AddGroupActivity extends Activity {
 	 		
 	 		CheckBox check = new CheckBox(this);
 	 		check.setId(MainActivity.persons.get(i).getId());
+	 		if(egroup != null && egroup.isInGroup(MainActivity.persons.get(i).getId())){
+	 			check.setChecked(true);
+	 		}
 	 		tr.addView(check);
 	 		
 	 		TextView name = new TextView(this);	
@@ -52,12 +69,15 @@ public class AddGroupActivity extends Activity {
 		     @Override
 		     public void onClick(View v) {
 		    	 Group group = new Group();
-		    	 int id;
-		    	 if (MainActivity.groups.size() == 0){
-		    		 id = 1000;
-		    	 }else{
-		    		 id = MainActivity.groups.get(MainActivity.groups.size()-1).getId() + 1;		    		
+		    	 
+		    	 if(id == 0){
+		    		 if (MainActivity.groups.size() == 0){
+			    		 id = 1000;
+			    	 }else{
+			    		 id = MainActivity.groups.get(MainActivity.groups.size()-1).getId() + 1;		    		
+			    	 } 
 		    	 }
+		    	 
 		    	 group.setId(id);
 		    	 EditText name = (EditText)findViewById(R.id.add_group_name);
 		    	 group.setGroupName(name.getText().toString());
@@ -73,6 +93,8 @@ public class AddGroupActivity extends Activity {
 		    	 }		    	 
 		    	 
 		    	 System.out.println("Path is: " + fileName + Integer.toString(id));
+		    	 
+		    	 Functions.deleteGroup(id);		    	
 		    	 MainActivity.groups.add(group);		    	
 		    	 handler.writeGroup(fileName + Integer.toString(id), group);
 		    	 

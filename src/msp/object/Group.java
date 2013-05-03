@@ -15,6 +15,10 @@ public class Group implements Serializable{
 	public Group(){		
 		
 	}
+	
+	public int getGroupSize(){
+		return groups_size;
+	}
 
 	public void addPerson(int id){
 		for(int i=0; i<groups_size; i++){
@@ -37,6 +41,15 @@ public class Group implements Serializable{
 			}
 		}
 		return count;
+	}
+	
+	public boolean isInGroup(int id){
+		for(int i=0; i<groups_size; i++){
+			if(this.persons_id[i] == id){
+				return true;			
+			}
+		}
+		return false;
 	}
 	
 	public String getGroupName() {

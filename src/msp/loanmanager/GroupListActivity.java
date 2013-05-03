@@ -59,7 +59,8 @@ public class GroupListActivity extends Activity {
 		}else{
 			for(int i=0; i<MainActivity.groups.size(); i++){
 				TableRow tr = new TableRow(this);
-
+				tr.setId(MainActivity.groups.get(i).getId());
+				 
 	            TableLayout.LayoutParams tableRowParams = new TableLayout.LayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
          		
 	            if(i+1 == MainActivity.groups.size()){
@@ -71,8 +72,8 @@ public class GroupListActivity extends Activity {
 	            tr.setBackgroundColor(Color.LTGRAY);		            		            
 	   	            	
             	TextView name = new TextView(this);            	
-            	LayoutParams lineparams = new TableRow.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-            	name.setLayoutParams(lineparams);
+            	LayoutParams nameparams = new TableRow.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+            	name.setLayoutParams(nameparams);
             	
             	name.setText(MainActivity.groups.get(i).getGroupName());
             	name.setTypeface(Typeface.DEFAULT_BOLD);		            	
@@ -83,13 +84,23 @@ public class GroupListActivity extends Activity {
 	            tr.addView(name);
 	
 	            TextView number = new TextView(this);	     
-	            LayoutParams numberparams = new TableRow.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+	            LayoutParams numberparams = new TableRow.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 	            number.setLayoutParams(numberparams);
 	            number.setText(Integer.toString(MainActivity.groups.get(i).getPersonsCount()));
 	            number.setTextColor(Color.BLACK);
 	            number.setGravity(Gravity.RIGHT);
+	            number.setTextSize(20);	
 	            number.setPadding(5, 0, 5, 0); 
 	            tr.addView(number);		
+	            
+	            tr.setOnClickListener(new View.OnClickListener() {
+		   		     @Override
+		   		     public void onClick(View v) {		    	 
+			   		     Intent intent = new Intent(GroupListActivity.this, GroupDescriptionActivity.class);
+			   		     intent.putExtra("group_id", ((TableRow)v).getId());
+			   		     startActivity(intent);
+		   		     }
+	   		 	});
 	            
 	            tl.addView(tr);	 
 			}			

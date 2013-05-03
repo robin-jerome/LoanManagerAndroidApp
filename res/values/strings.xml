@@ -13,5 +13,9 @@
     <string name="persons">Persons</string>
     <string name="title_activity_give">GiveActivity</string>
     <string name="title_activity_take">TakeActivity</string>
-
+    <string name="title_activity_persons_describtion">PersonsDescribtionActivity</string>
+    <string name="title_activity_group_description">GroupDescriptionActivity</string>
+    <string name="gp_title_group_person">Member of these groups</string>
+    <string name="gp_title_group_group">Group members</string>
+   
 </resources>

@@ -16,17 +16,17 @@ public class DataHandler {
 	public void writeLoan(String fileName, Loan loan) {
 		File file = new File(fileName);
 		if (file.exists()) {
-			 System.out.println("Already exist: " + fileName);
-		} else {
-			try {
-				FileOutputStream fout = new FileOutputStream(fileName);
-				ObjectOutputStream oos = new ObjectOutputStream(fout);
-				oos.writeObject(loan);
-				oos.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			this.removeFile(fileName);
+		} 
+		try {
+			FileOutputStream fout = new FileOutputStream(fileName);
+			ObjectOutputStream oos = new ObjectOutputStream(fout);
+			oos.writeObject(loan);
+			oos.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		
 	}	
 	
 	public ArrayList<Loan> readLoans(String filePath){
@@ -61,18 +61,17 @@ public class DataHandler {
 	
 	public void writePerson(String fileName, Person person) {
 		File file = new File(fileName);
-		if (file.exists()) {
-			 System.out.println("Already exist: " + fileName);
-		} else {
-			try {
-				FileOutputStream fout = new FileOutputStream(fileName);
-				ObjectOutputStream oos = new ObjectOutputStream(fout);
-				oos.writeObject(person);
-				oos.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+		if (file.exists()) {	
+			 this.removeFile(fileName);
+		} 
+		try {
+			FileOutputStream fout = new FileOutputStream(fileName);
+			ObjectOutputStream oos = new ObjectOutputStream(fout);
+			oos.writeObject(person);
+			oos.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
 	}	
 	
 	public ArrayList<Person> readPersons(String filePath){
@@ -109,17 +108,17 @@ public class DataHandler {
 	public void writeGroup(String fileName, Group group) {
 		File file = new File(fileName);
 		if (file.exists()) {
-			 System.out.println("Already exist: " + fileName);
-		} else {
-			try {
-				FileOutputStream fout = new FileOutputStream(fileName);
-				ObjectOutputStream oos = new ObjectOutputStream(fout);
-				oos.writeObject(group);
-				oos.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			 this.removeFile(fileName);
+		} 
+		try {
+			FileOutputStream fout = new FileOutputStream(fileName);
+			ObjectOutputStream oos = new ObjectOutputStream(fout);
+			oos.writeObject(group);
+			oos.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		
 	}	
 	
 	public ArrayList<Group> readGroups(String filePath){
@@ -152,4 +151,8 @@ public class DataHandler {
 		return group;
 	}
 	
+	public boolean removeFile(String fileName){
+		File file = new File(fileName);
+		return file.delete();
+	}
 }

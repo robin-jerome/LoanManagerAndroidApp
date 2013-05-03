@@ -18,6 +18,7 @@ public class AddPersonActivity extends Activity {
 	private DataHandler handler = new DataHandler();
 	private String fileName = MainActivity.PATH + "p";
 	private int id;
+
 	 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class AddPersonActivity extends Activity {
 
         if (extras != null) {
             id = extras.getInt("person_id");
+         
             Person person = Functions.findPersonById(id);
             EditText name = (EditText)findViewById(R.id.add_person_name);
             name.setText(person.getName());
@@ -51,10 +53,10 @@ public class AddPersonActivity extends Activity {
 		    	 EditText info = (EditText)findViewById(R.id.add_person_info);
 		    	 person.setInfo(info.getText().toString());	
 		    	 
+		    	 Functions.deletePerson(id);
 		    	 MainActivity.persons.add(person);
 		    	 System.out.println("Path is: " + fileName + Integer.toString(id));
-		    	 
-		    	 
+		    	 		    	 
 		    	 handler.writePerson(fileName + Integer.toString(id), person);
 		    	 
 			     Intent intent = new Intent(AddPersonActivity.this, PersonListActivity.class);	
