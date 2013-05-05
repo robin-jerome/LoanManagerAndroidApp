@@ -25,15 +25,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="msp.loanmanager.GivenActivity" >
-        </activity>
         <activity android:name="msp.loanmanager.Taken" >
         </activity>
         <activity android:name="msp.loanmanager.AddPersonActivity" >
         </activity>
         <activity android:name="msp.loanmanager.AddGroupActivity" >
         </activity>
-        <activity android:name="msp.loanmanager.MainMenuActivity" >
+        <activity 
+            android:name="msp.loanmanager.MainMenuActivity" 
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
         <activity
             android:name="msp.loanmanager.GroupListActivity"
@@ -59,6 +59,14 @@
         </activity>
         <activity
             android:name="msp.loanmanager.LoanDescriptionActivity"
+            android:label="@string/title_activity_loan_description" >
+        </activity>
+        <activity
+            android:name="msp.loanmanager.PersonLoansActivity"
+            android:label="@string/title_activity_loan_description" >
+        </activity>
+        <activity
+            android:name="msp.loanmanager.GroupLoansActivity"
             android:label="@string/title_activity_loan_description" >
         </activity>
     </application>

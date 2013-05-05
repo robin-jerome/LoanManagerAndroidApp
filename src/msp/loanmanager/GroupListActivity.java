@@ -1,5 +1,7 @@
 package msp.loanmanager;
 
+import msp.action.Functions;
+import msp.object.Person;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -8,9 +10,11 @@ import android.graphics.Typeface;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -18,26 +22,39 @@ import android.widget.TextView;
 
 public class GroupListActivity extends Activity {
 
+	private boolean fromLoans = false;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_gp_list);
 			
-		Button button = (Button)findViewById(R.id.bar_add_button);
-		button.setText(R.string.button_add_gp);
-		button.setTextSize(20);
+		Bundle extras = getIntent().getExtras();
+		if (extras != null) {
+           fromLoans = extras.getBoolean("loans");
+        }
 		
+		if(fromLoans){
+			Button button = (Button)findViewById(R.id.bar_add_button);
+			ViewGroup layout = (ViewGroup) button.getParent();
+			layout.removeView(button);
+		}else{		
+			Button button = (Button)findViewById(R.id.bar_add_button);
+			button.setText(R.string.button_add_gp);
+			button.setTextSize(20);
+			
+			button.setOnClickListener(new View.OnClickListener() {
+			     @Override
+			     public void onClick(View v) {		    	 
+			     Intent intent = new Intent(GroupListActivity.this, AddGroupActivity.class);	
+			     startActivity(intent);
+			     }
+			 });		
+		
+		}
 		TextView title = (TextView)findViewById(R.id.bar_add_title);
 		title.setText(R.string.groups);
-		
-		button.setOnClickListener(new View.OnClickListener() {
-		     @Override
-		     public void onClick(View v) {		    	 
-		     Intent intent = new Intent(GroupListActivity.this, AddGroupActivity.class);	
-		     startActivity(intent);
-		     }
-		 });		
-		
+				
 		
 		TableLayout tl = (TableLayout) findViewById(R.id.tableList);	
 		
@@ -96,7 +113,12 @@ public class GroupListActivity extends Activity {
 	            tr.setOnClickListener(new View.OnClickListener() {
 		   		     @Override
 		   		     public void onClick(View v) {		    	 
-			   		     Intent intent = new Intent(GroupListActivity.this, GroupDescriptionActivity.class);
+		   		    	 Intent intent;
+		   		    	 if(fromLoans){
+		   		    		 intent = new Intent(GroupListActivity.this, GroupLoansActivity.class);
+		   		    	 }else{
+		   		    		 intent = new Intent(GroupListActivity.this, GroupDescriptionActivity.class);
+		   		    	 }
 			   		     intent.putExtra("group_id", ((TableRow)v).getId());
 			   		     startActivity(intent);
 		   		     }
@@ -106,12 +128,4 @@ public class GroupListActivity extends Activity {
 			}			
 		}
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.group_list, menu);
-		return true;
-	}
-
 }

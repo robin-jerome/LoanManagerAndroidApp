@@ -54,11 +54,22 @@ public class MainMenuActivity extends Activity {
 		given.setOnClickListener(new View.OnClickListener() {
 		     @Override
 		     public void onClick(View v) {		    	 
-		     Intent intent = new Intent(MainMenuActivity.this, GivenActivity.class);	
+		     Intent intent = new Intent(MainMenuActivity.this, PersonListActivity.class);	
+		     intent.putExtra("loans", true);
 		     startActivity(intent);
 		     }
 		 });
 		
+		Button taken = (Button)findViewById(R.id.bTake2);
+		
+		taken.setOnClickListener(new View.OnClickListener() {
+		     @Override
+		     public void onClick(View v) {		    	 
+		     Intent intent = new Intent(MainMenuActivity.this, GroupListActivity.class);
+		     intent.putExtra("loans", true);
+		     startActivity(intent);
+		     }
+		 });		
 				
 	}
 	

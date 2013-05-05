@@ -17,6 +17,7 @@
     <string name="title_activity_group_description">GroupDescriptionActivity</string>
     <string name="gp_title_group_person">Member of these groups</string>
     <string name="gp_title_group_group">Group members</string>
+    <string name="title_activity_group_loans">GroupLoansActivity</string>
     <string name="title_activity_loan_description">LoanDescriptionActivity</string>
 
 </resources>

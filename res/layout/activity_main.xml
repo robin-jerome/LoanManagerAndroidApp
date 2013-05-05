@@ -41,7 +41,7 @@
 	        android:layout_height="wrap_content"
 	        android:layout_toRightOf="@+id/bGive"
 	        android:layout_marginLeft="2dp"
-	        android:text="Given loans" 
+	        android:text="Loans to Person" 
         />
 	</LinearLayout>
     
@@ -67,7 +67,7 @@
 	        android:layout_height="wrap_content"
 	        android:layout_toRightOf="@+id/bTake"
 	        android:layout_marginLeft="2dp"
-	        android:text="Taken loans" 
+	        android:text="Loans to Group" 
 	        />
 	</LinearLayout>
     

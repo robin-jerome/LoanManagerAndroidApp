@@ -17,27 +17,21 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 
-public class GivenActivity extends Activity {  
+public class PersonLoansActivity extends Activity {  
 	private DataHandler handler = new DataHandler();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_given);
+		setContentView(R.layout.activity_person_loans);
 		
 		// Fake loan
 		Loan loan = new Loan();
 		loan.setId(1000);
 		loan.setFromPersonId(MainActivity.me_ID);
-		loan.setToPersonId(1001);
+		loan.setToPersonId(1000);
 		loan.setAmount(200);
-		MainActivity.loans.add(loan);
-		  
-		  
-		 
-		
-		
-		
+		MainActivity.loans.add(loan);		
 		
 		TableLayout tl = (TableLayout) findViewById(R.id.given_table);				
 		int givenCounter = 0;
@@ -77,9 +71,7 @@ public class GivenActivity extends Activity {
 	            
 	            tl.addView(tr);	 
 			}		
-		}
-
-		
+		}		
 		
 		
 		if(givenCounter==0){
