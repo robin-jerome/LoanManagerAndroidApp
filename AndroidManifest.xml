@@ -57,6 +57,10 @@
             android:name="msp.loanmanager.GroupDescriptionActivity"
             android:label="@string/title_activity_group_description" >
         </activity>
+        <activity
+            android:name="msp.loanmanager.LoanDescriptionActivity"
+            android:label="@string/title_activity_loan_description" >
+        </activity>
     </application>
 
 </manifest>
