@@ -32,7 +32,9 @@ public class GiveActivity extends Activity {
 	
 	private static final String TAG = "GiveActivity"; 
 	
-	private String loansFileName = MainActivity.PATH + "lg"; // lg - loans given
+	private static final String NO_SELECTION = "No Selection";
+	
+	private String loansFileName = MainActivity.PATH + "l"; // lg - loans given
 	
 	private Spinner toPersonNameSpinner;
 	
@@ -76,20 +78,33 @@ public class GiveActivity extends Activity {
 		    	 String toGroupName = String.valueOf(toGroupNameSpinner.getSelectedItem());
 		    	 String fromPersonName = String.valueOf(fromPersonNameSpinner.getSelectedItem());
 		    	 
-		    	 int toPersonId = Util.getPersonIdFromName(toPersonName);
-		    	 int groupId = Util.getGroupIdFromName(toGroupName);
-		    	 int fromPersonId = Util.getPersonIdFromName(fromPersonName);
+		    	 int toPersonId = -1; 
+		    	 int toGroupId = -1; 
+		    	 int fromPersonId = -1;
+		    		 
+		    	 if(!toPersonName.equals(NO_SELECTION)){
+		    		 toPersonId = Util.getPersonIdFromName(toPersonName);
+		    	 }
+		    	 
+		    	 if(!fromPersonName.equals(NO_SELECTION)){
+		    		 fromPersonId = Util.getPersonIdFromName(fromPersonName);
+		    	 }
+		    	 
+		    	 if(!toGroupName.equals(NO_SELECTION)){
+		    		 toGroupId = Util.getGroupIdFromName(toGroupName);
+		    	 }
 		    	 
 		    	 EditText amount = (EditText)findViewById(R.id.add_amount);
 		    	 
 		    	 loan.setId(loanId);
-		    	 loan.setFromPersonId(fromPersonId); // Since Action is give - Its always from the user of the App
 		    	 loan.setToPersonId(toPersonId);
-		    	 loan.setToGroupId(groupId);
+		    	 loan.setFromPersonId(fromPersonId); // Since Action is give - Its always from the user of the App
+		    	 loan.setToGroupId(toGroupId);
 		    	 loan.setLoanDate(loanDateTime.toString());
 		    	 loan.setLoanDue(dueDateTime.toString());
 		    	 loan.setAmount(Integer.valueOf(amount.getText().toString()));
 		    	 loan.setSettled(false);
+		    	 
 		    	 Log.i(TAG, "Path is: " + loansFileName + Integer.toString(loanId));
 		    	 MainActivity.loans.add(loan);	    	
 		    	 dataHandler.writeLoan(loansFileName + Integer.toString(loanId), loan);
@@ -123,6 +138,7 @@ public class GiveActivity extends Activity {
 		toPersonNameSpinner = (Spinner) findViewById(R.id.to_person_name_spinner);
 		ArrayList<Person> personList = MainActivity.persons;
 		List<String> list = new ArrayList<String>();
+		list.add(NO_SELECTION);
 		for(Person person: personList){
 			list.add(person.getName());
 		}
@@ -137,6 +153,7 @@ public class GiveActivity extends Activity {
 		fromPersonNameSpinner = (Spinner) findViewById(R.id.from_person_name_spinner);
 		ArrayList<Person> personList = MainActivity.persons;
 		List<String> list = new ArrayList<String>();
+		list.add(NO_SELECTION);
 		for(Person person: personList){
 			list.add(person.getName());
 		}
@@ -151,6 +168,7 @@ public class GiveActivity extends Activity {
 		toGroupNameSpinner = (Spinner) findViewById(R.id.to_group_name_spinner);
 		ArrayList<Group> groupList = MainActivity.groups;
 		List<String> list = new ArrayList<String>();
+		list.add(NO_SELECTION);
 		for(Group group: groupList){
 			list.add(group.getGroupName());
 		}
