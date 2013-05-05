@@ -50,10 +50,6 @@
             android:label="@string/title_activity_give" >
         </activity>
         <activity
-            android:name="msp.loanmanager.TakeActivity"
-            android:label="@string/title_activity_take" >
-        </activity>
-        <activity
             android:name="msp.loanmanager.PersonDescriptionActivity"
             android:label="@string/title_activity_persons_describtion" >
         </activity>

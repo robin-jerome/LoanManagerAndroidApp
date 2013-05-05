@@ -39,6 +39,16 @@ public class MainMenuActivity extends Activity {
 		     }
 		 });
 		
+		Button addGiveLoan = (Button)findViewById(R.id.bGive);
+		
+		addGiveLoan.setOnClickListener(new View.OnClickListener() {
+		     @Override
+		     public void onClick(View v) {		    	 
+		     Intent intent = new Intent(MainMenuActivity.this, GiveActivity.class);	
+		     startActivity(intent);
+		     }
+		 });
+		
 		Button given = (Button)findViewById(R.id.bGive2);
 		
 		given.setOnClickListener(new View.OnClickListener() {

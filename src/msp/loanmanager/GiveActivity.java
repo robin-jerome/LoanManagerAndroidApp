@@ -4,7 +4,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import msp.action.CustomOnItemSelectedListener;
 import msp.action.DataHandler;
@@ -25,7 +24,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 public class GiveActivity extends Activity {
 
@@ -73,8 +71,6 @@ public class GiveActivity extends Activity {
 		    	 }else{
 		    		 loanId = MainActivity.loans.get(MainActivity.loans.size()-1).getId() + 1;		    		
 		    	 }
-		    	 
-		    	 
 		    	 String toPersonName = String.valueOf(toPersonNameSpinner.getSelectedItem());
 		    	 String toGroupName = String.valueOf(toGroupNameSpinner.getSelectedItem());
 		    	 String fromPersonName = String.valueOf(fromPersonNameSpinner.getSelectedItem());
@@ -93,7 +89,6 @@ public class GiveActivity extends Activity {
 		    	 loan.setLoanDue(dueDateTime.toString());
 		    	 loan.setAmount(Integer.valueOf(amount.getText().toString()));
 		    	 loan.setSettled(false);
-		    	 
 		    	 Log.i(TAG, "Path is: " + loansFileName + Integer.toString(loanId));
 		    	 MainActivity.loans.add(loan);	    	
 		    	 dataHandler.writeLoan(loansFileName + Integer.toString(loanId), loan);
