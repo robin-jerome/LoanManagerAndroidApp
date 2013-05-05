@@ -25,6 +25,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 
+
 public class GiveActivity extends Activity {
 
 	private DataHandler dataHandler = new DataHandler();
@@ -93,6 +94,7 @@ public class GiveActivity extends Activity {
 		    	 MainActivity.loans.add(loan);	    	
 		    	 dataHandler.writeLoan(loansFileName + Integer.toString(loanId), loan);
 		    	 Log.i(TAG, "Loan Written to file");
+		    	 Util.showToastMessage(getApplicationContext(),"Loan Saved Successfully");
 		    	 Intent intent = new Intent(GiveActivity.this, MainActivity.class);	
 			     startActivity(intent);
 		     }
@@ -168,12 +170,15 @@ public class GiveActivity extends Activity {
 				loanDateTime = dateTime;
 				Button loanDateButton = (Button)findViewById(R.id.loan_date_picker);
 				loanDateButton.setText(calendarAsString(loanDateTime));
+				Util.showToastMessage(getApplicationContext(),"Loan date set");
 				loanDateSetInProgress = false;
 				
 			} else if(dueDateSetInProgress){
 				dueDateTime = dateTime;
 				Button dueDateButton = (Button)findViewById(R.id.due_date_picker);
 				dueDateButton.setText(calendarAsString(dueDateTime));
+				 ;
+				Util.showToastMessage(getApplicationContext(),"Due date set");
 				dueDateSetInProgress = false;
 			}
 		}

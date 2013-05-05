@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import msp.loanmanager.MainActivity;
 import msp.object.Group;
 import msp.object.Person;
+import android.content.Context;
+import android.widget.Toast;
 
 public class Util {
 
@@ -28,6 +30,11 @@ public class Util {
 			}
 		}
 		return retVal;
+	}
+	
+	public static void showToastMessage(Context ctxt,String message){
+		
+		Toast.makeText(ctxt,message,Toast.LENGTH_SHORT).show();
 	}
 	
 }
