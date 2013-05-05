@@ -7,6 +7,20 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AddPersonActivity" >
+    
+	<LinearLayout 
+	    android:weightSum="100"
+	    >
+   <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/add_person_name"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="25dp"
+        android:text="Name"
+        android:layout_weight="70"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
         android:id="@+id/add_person_name"
@@ -15,32 +29,14 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="51dp"
+        android:layout_weight="30"
         android:ems="10"
         android:inputType="textPersonName" >
 
         <requestFocus />
     </EditText>
-
-    <EditText
-        android:id="@+id/add_person_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/add_person_name"
-        android:layout_below="@+id/add_person_name"
-        android:layout_marginTop="69dp"
-        android:ems="10"
-        android:inputType="textMultiLine" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/add_person_name"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="25dp"
-        android:text="Name"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
+    </LinearLayout>
+    
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -51,6 +47,19 @@
         android:text="Additional Information"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
+    <EditText
+        android:id="@+id/add_person_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/add_person_name"
+        android:layout_below="@+id/add_person_name"
+        android:layout_marginTop="69dp"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+    
+    <LinearLayout 
+        android:weightSum="100"	
+        >
     <Button
         android:id="@+id/add_person_confirm"
         android:layout_width="wrap_content"
@@ -58,6 +67,7 @@
         android:layout_alignLeft="@+id/add_person_info"
         android:layout_below="@+id/add_person_info"
         android:layout_marginTop="66dp"
+        android:layout_weight="50"
         android:text="OK" />
 
     <Button
@@ -67,6 +77,9 @@
         android:layout_alignBaseline="@+id/add_person_confirm"
         android:layout_alignBottom="@+id/add_person_confirm"
         android:layout_alignRight="@+id/add_person_info"
+        android:layout_weight="50"
         android:text="Cancel" />
 
+    </LinearLayout>
+    
 </RelativeLayout>
