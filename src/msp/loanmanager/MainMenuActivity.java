@@ -60,7 +60,7 @@ public class MainMenuActivity extends Activity {
 		     }
 		 });
 		
-		Button showLoan = (Button)findViewById(R.id.bTake);
+		/*Button showLoan = (Button)findViewById(R.id.bTake);
 		
 		showLoan.setOnClickListener(new View.OnClickListener() {
 		     @Override
@@ -68,7 +68,7 @@ public class MainMenuActivity extends Activity {
 		     Intent intent = new Intent(MainMenuActivity.this, LoanDescriptionActivity.class);	
 		     startActivity(intent);
 		     }
-		 });
+		 });*/
 		
 		Button taken = (Button)findViewById(R.id.bTake2);
 		
