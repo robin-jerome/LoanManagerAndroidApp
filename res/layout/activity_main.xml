@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#110101"
+    android:background="#DCEBFC"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -31,17 +31,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
-            android:layout_weight="50"
-            android:text="Give" />
+            android:layout_weight="100"
+            android:text="Add Loan"
+            android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/bGive2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:layout_toRightOf="@+id/bGive"
-            android:layout_weight="50"
-            android:text="Loans to Person" />
     </LinearLayout>
     
     <LinearLayout
@@ -52,21 +45,23 @@
         android:weightSum="100" >
 
         <Button
-            android:id="@+id/bTake"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:layout_weight="50"
-            android:text="Take" />
-
-        <Button
             android:id="@+id/bTake2"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginLeft="2dp"
-            android:layout_toRightOf="@+id/bTake"
             android:layout_weight="50"
-            android:text="Loans to Group" />
+            android:text="Loans to Group"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/bGive2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="50"
+            android:text="Loans to Person"
+            android:textSize="20sp" />
+
     </LinearLayout>
     
 	<LinearLayout
@@ -79,19 +74,22 @@
 	    <Button
 	        android:id="@+id/bDeadlines"
 	        android:layout_width="0dp"
-	        android:layout_height="wrap_content"
+	        android:layout_height="match_parent"
 	        android:layout_marginLeft="2dp"
 	        android:layout_weight="50"
-	        android:text="Next Deadlines" />
+	        android:text="Upcoming Deadlines"
+	        android:textSize="20sp" />
 
 	    <Button
 	        android:id="@+id/bsLoans"
 	        android:layout_width="0dp"
-	        android:layout_height="wrap_content"
+	        android:layout_height="match_parent"
 	        android:layout_marginLeft="2dp"
 	        android:layout_toRightOf="@+id/bDeadlines"
 	        android:layout_weight="50"
-	        android:text="Settled loans" />
+	        android:text="Settled loans"
+	        android:textSize="20sp" />
+
 	</LinearLayout>
 
 	<LinearLayout
@@ -107,7 +105,8 @@
 	        android:layout_height="wrap_content"
 	        android:layout_marginLeft="2dp"
 	        android:layout_weight="50"
-	        android:text="My Groups" />
+	        android:text="My Groups"
+	        android:textSize="20sp" />
 
 	    <Button
 	        android:id="@+id/bPersons"
@@ -116,7 +115,9 @@
 	        android:layout_marginLeft="2dp"
 	        android:layout_toRightOf="@+id/bGroups"
 	        android:layout_weight="50"
-	        android:text="My Persons" />
+	        android:text="My Persons"
+	        android:textSize="20sp" />
+
 	</LinearLayout>
 	   
 </RelativeLayout>
