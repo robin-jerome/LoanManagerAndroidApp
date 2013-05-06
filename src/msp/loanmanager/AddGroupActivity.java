@@ -57,7 +57,7 @@ public class AddGroupActivity extends Activity {
 	 		
 	 		TextView name = new TextView(this);	
 	 		name.setText(MainActivity.persons.get(i).getName());
-	 		name.setTextColor(Color.BLACK);
+	 		name.setTextColor(Color.WHITE);
 	        tr.addView(name);
 	        
 	        tl.addView(tr);

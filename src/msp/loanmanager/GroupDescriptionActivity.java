@@ -84,7 +84,7 @@ public class GroupDescriptionActivity extends Activity {
 	             	
 	             	groupname.setText(person.getName());             			            	
 	             	groupname.setTextSize(18);		            	            
-	             	groupname.setTextColor(Color.BLACK);
+	             	groupname.setTextColor(Color.WHITE);
 	             	groupname.setGravity(Gravity.LEFT);
 	             	groupname.setPadding(5, 5, 5, 5); 
 	 	            tr.addView(groupname);

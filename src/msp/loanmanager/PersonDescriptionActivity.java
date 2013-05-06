@@ -90,7 +90,7 @@ public class PersonDescriptionActivity extends Activity {
              	
              	groupname.setText(groups.get(i).getGroupName());             			            	
              	groupname.setTextSize(18);		            	            
-             	groupname.setTextColor(Color.BLACK);
+             	groupname.setTextColor(Color.WHITE);
              	groupname.setGravity(Gravity.LEFT);
              	groupname.setPadding(5, 5, 5, 5); 
  	            tr.addView(groupname);
@@ -99,7 +99,7 @@ public class PersonDescriptionActivity extends Activity {
  	            LayoutParams numberparams = new TableRow.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
  	            number.setLayoutParams(numberparams);
  	            number.setText(Integer.toString(groups.get(i).getPersonsCount()));
- 	            number.setTextColor(Color.BLACK);
+ 	            number.setTextColor(Color.WHITE);
  	            number.setGravity(Gravity.RIGHT);
  	            number.setPadding(5, 5, 5, 5); 
  	            tr.addView(number);		
