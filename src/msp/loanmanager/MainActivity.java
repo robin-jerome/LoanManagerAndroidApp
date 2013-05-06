@@ -40,16 +40,16 @@ public class MainActivity extends Activity {
 			persons = new ArrayList<Person>();
 			groups = new ArrayList<Group>();
 			loans = new ArrayList<Loan>();
+						
+			Person me = new Person();
+			me.setId(me_ID);
+			me.setName("Me");
+			me.setInfo("My personality :)");
+			persons.add(me);
+			DataHandler dh = new DataHandler();
+			dh.writePerson(PATH + "p" + Integer.toString(me_ID), me);
+			System.out.println("Je tu: " + persons.get(0).getName());
 			
-			if(persons.size()==0){
-				Person me = new Person();
-				me.setId(me_ID);
-				me.setName("Me");
-				me.setInfo("My personality :)");
-				persons.add(me);
-				DataHandler dh = new DataHandler();
-				dh.writePerson(PATH + "p" + Integer.toString(me_ID), me);
-			}
 		}else{
 			System.out.println("Directory already exists");
 			if(persons == null){

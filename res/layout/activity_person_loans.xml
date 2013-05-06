@@ -42,18 +42,11 @@
 	   android:orientation="horizontal" >
 	    
          <Button
-	         android:id="@+id/menu_update_button"
+	         android:id="@+id/settle_person_button"
 	         android:layout_width="wrap_content"
 	    	 android:layout_height="wrap_content"
 	    	 android:gravity="left"	 
-	    	 android:text="Test1" />
-	   
-	    <Button
-	         android:id="@+id/menu_remove_button"
-	         android:layout_width="wrap_content"
-	    	 android:layout_height="wrap_content"
-	    	 android:gravity="right"	 
-	    	 android:text="Test2" />
+	    	 android:text="Settle" />
    </LinearLayout>
 	   
 </LinearLayout>

@@ -52,7 +52,7 @@ public class PersonListActivity extends Activity {
 				
 		TableLayout tl = (TableLayout) findViewById(R.id.tableList);	
 		
-		if(MainActivity.persons.size()==0){
+		if(MainActivity.persons.size()==0 || (MainActivity.persons.size()==1 && fromLoans)){
 			TableRow tr = new TableRow(this);
 			TableLayout.LayoutParams tableRowParams = new TableLayout.LayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
      		tr.setLayoutParams(tableRowParams);            
@@ -69,7 +69,9 @@ public class PersonListActivity extends Activity {
             tl.addView(tr);
 		}else{
 			for(int i=0; i<MainActivity.persons.size(); i++){
-				
+				if(fromLoans && MainActivity.persons.get(i).getId() == MainActivity.me_ID){
+					continue;
+				}
 				 TableRow tr = new TableRow(this);
 				 tr.setId(MainActivity.persons.get(i).getId());
 				 
