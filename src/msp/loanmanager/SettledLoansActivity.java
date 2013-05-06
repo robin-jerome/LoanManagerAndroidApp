@@ -87,8 +87,13 @@ public class SettledLoansActivity extends Activity {
 	}
 
 	private ArrayList<Loan> getOrderedSettledLoans() {
-		// TODO Auto-generated method stub
-		return MainActivity.loans;
+		ArrayList<Loan> settledLoans = new ArrayList<Loan>();
+		for(Loan loan : MainActivity.loans){
+			if(loan.isSettled()){
+				settledLoans.add(loan);
+			}
+		}
+		return settledLoans;
 	}
 
 	@Override
