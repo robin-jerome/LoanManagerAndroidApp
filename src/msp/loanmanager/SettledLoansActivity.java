@@ -25,6 +25,12 @@ public class SettledLoansActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_settled_loans);
 		ArrayList<Loan> orderedSettledLoans = getOrderedSettledLoans();
+		String customText = orderedSettledLoans.size()+" settled Loans!";
+		
+		TextView titleView = (TextView)findViewById(R.id.bar_add_title_settled_loans);
+		titleView.setText(customText);	        		            	
+		titleView.setTextSize(20);
+		
 		TableLayout tl = (TableLayout) findViewById(R.id.settled_loans_table);	
 		
 		for(int i=0; i < orderedSettledLoans.size(); i++){
@@ -55,7 +61,7 @@ public class SettledLoansActivity extends Activity {
 			}
 			
 			name.setText(loanDesc);	        		            	
-			name.setTextSize(20);		            	            
+			name.setTextSize(15);		            	            
 			name.setTextColor(Color.BLACK);
 			name.setGravity(Gravity.LEFT);
 			name.setPadding(5, 0, 5, 0); 

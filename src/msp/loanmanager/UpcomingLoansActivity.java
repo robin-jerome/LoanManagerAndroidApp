@@ -18,6 +18,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -32,6 +33,15 @@ public class UpcomingLoansActivity extends Activity {
 		setContentView(R.layout.activity_upcoming_loans);
 		ArrayList<Loan> orderedUpcomingLoans = getOrderedUpcomingLoans();
 		TableLayout tl = (TableLayout) findViewById(R.id.upcoming_loans_table);	
+		
+		String customText = orderedUpcomingLoans.size()+" loans due in "+UPCOMING_LOANS_DURATION+" days!";
+		if(orderedUpcomingLoans.size()==1){
+			customText = orderedUpcomingLoans.size()+" loan due in "+UPCOMING_LOANS_DURATION+" days!";
+		}
+		
+		TextView titleView = (TextView)findViewById(R.id.bar_add_title_upcoming_loans);
+		titleView.setText(customText);	        		            	
+		titleView.setTextSize(20);
 		
 		for(int i=0; i < orderedUpcomingLoans.size(); i++){
 			Loan actloan =orderedUpcomingLoans.get(i);
@@ -61,7 +71,7 @@ public class UpcomingLoansActivity extends Activity {
 			}
 			
 			name.setText(loanDesc);	        		            	
-			name.setTextSize(20);		            	            
+			name.setTextSize(15);		            	            
 			name.setTextColor(Color.BLACK);
 			name.setGravity(Gravity.LEFT);
 			name.setPadding(5, 0, 5, 0); 

@@ -18,7 +18,7 @@
     <string name="gp_title_group_group">Group members</string>
     <string name="title_activity_group_loans">GroupLoansActivity</string>
     <string name="title_activity_loan_description">LoanDescriptionActivity</string>
-    <string name="title_activity_settled_loans">SettledLoansActivity</string>
-    <string name="title_activity_upcoming_loans">UpcomingLoansActivity</string>
+    <string name="title_activity_settled_loans">Settled Loans</string>
+    <string name="title_activity_upcoming_loans">Due Soon</string>
 
 </resources>
