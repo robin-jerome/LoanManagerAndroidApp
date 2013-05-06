@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.Gravity;
@@ -78,6 +79,7 @@ public class GroupLoansActivity extends Activity {
 								LayoutParams.WRAP_CONTENT));
 
 				tr.setLayoutParams(tableRowParams);
+				tr.setId(actloan.getId());
 				if (actloan.getFromPersonId() == MainActivity.me_ID) {
 					tr.setBackgroundColor(Color.GREEN);
 				} else {
@@ -92,7 +94,7 @@ public class GroupLoansActivity extends Activity {
 				Person person = Functions.findPersonById(actloan
 						.getFromPersonId());
 				name.setText(person.getName());
-				name.setTextSize(16);
+				name.setTextSize(20);
 				name.setTextColor(Color.BLACK);
 				name.setGravity(Gravity.LEFT);
 				name.setPadding(5, 0, 5, 0);
@@ -104,7 +106,7 @@ public class GroupLoansActivity extends Activity {
 				item.setLayoutParams(itemparams);
 
 				item.setText(actloan.getItemName());
-				item.setTextSize(16);
+				item.setTextSize(20);
 				item.setTextColor(Color.BLACK);
 				item.setGravity(Gravity.LEFT);
 				item.setPadding(5, 0, 5, 0);
@@ -122,6 +124,16 @@ public class GroupLoansActivity extends Activity {
 				amount.setPadding(5, 0, 5, 0);
 				tr.addView(amount);
 
+	            tr.setOnClickListener(new View.OnClickListener() {
+		   		     @Override
+		   		     public void onClick(View v) {		    	 
+			   		     Intent intent = new Intent(GroupLoansActivity.this, LoanDescriptionActivity.class);			   		    
+			   		     intent.putExtra("loan_id", ((TableRow)v).getId());
+			   		     startActivity(intent);
+		   		     }
+	   		 	});
+				
+				
 				tl.addView(tr);
 			}
 		}

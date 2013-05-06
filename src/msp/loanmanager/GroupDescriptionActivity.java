@@ -79,7 +79,7 @@ public class GroupDescriptionActivity extends Activity {
 	          		tr.setLayoutParams(tableRowParams);	           		            		            
 	 	   	            	
 	             	TextView groupname = new TextView(this);            	
-	             	LayoutParams lineparams = new TableRow.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+	             	LayoutParams lineparams = new TableRow.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 	             	groupname.setLayoutParams(lineparams);
 	             	
 	             	groupname.setText(person.getName());             			            	

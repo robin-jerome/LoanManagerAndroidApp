@@ -70,7 +70,9 @@ public class PersonLoansActivity extends Activity {
 				
 				TableRow tr = new TableRow(this);
 				TableLayout.LayoutParams tableRowParams = new TableLayout.LayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-		     			         	
+		     		
+				tr.setId(actloan.getId());
+				
 				tr.setLayoutParams(tableRowParams); 
 				if(actloan.getFromPersonId() == MainActivity.me_ID){
 					 tr.setBackgroundColor(Color.GREEN);
@@ -79,12 +81,12 @@ public class PersonLoansActivity extends Activity {
 				}	           
 				
 	        	TextView name = new TextView(this);            	
-	        	LayoutParams lineparams = new TableRow.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+	        	LayoutParams lineparams = new TableRow.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 	        	name.setLayoutParams(lineparams);
 	        	
 //	        	Person person = Functions.findPersonById(actloan.getToPersonId());
 	        	name.setText(actloan.getItemName());	        		            	
-	        	name.setTextSize(16);		            	            
+	        	name.setTextSize(20);		            	            
 	            name.setTextColor(Color.BLACK);
 	            name.setGravity(Gravity.LEFT);
 	            name.setPadding(5, 0, 5, 0); 
@@ -100,6 +102,15 @@ public class PersonLoansActivity extends Activity {
 	            amount.setGravity(Gravity.RIGHT);
 	            amount.setPadding(5, 0, 5, 0); 
 	            tr.addView(amount);	
+	            
+	            tr.setOnClickListener(new View.OnClickListener() {
+		   		     @Override
+		   		     public void onClick(View v) {		    	 
+			   		     Intent intent = new Intent(PersonLoansActivity.this, LoanDescriptionActivity.class);			   		    
+			   		     intent.putExtra("loan_id", ((TableRow)v).getId());
+			   		     startActivity(intent);
+		   		     }
+	   		 	});
 	            
 	            tl.addView(tr);	 
 			}		
