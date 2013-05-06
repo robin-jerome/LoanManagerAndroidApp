@@ -31,8 +31,8 @@
         </activity>
         <activity android:name="msp.loanmanager.AddGroupActivity" >
         </activity>
-        <activity 
-            android:name="msp.loanmanager.MainMenuActivity" 
+        <activity
+            android:name="msp.loanmanager.MainMenuActivity"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
         <activity
@@ -68,6 +68,14 @@
         <activity
             android:name="msp.loanmanager.GroupLoansActivity"
             android:label="@string/title_activity_loan_description" >
+        </activity>
+        <activity
+            android:name="msp.loanmanager.SettledLoansActivity"
+            android:label="@string/title_activity_settled_loans" >
+        </activity>
+        <activity
+            android:name="msp.loanmanager.UpcomingLoansActivity"
+            android:label="@string/title_activity_upcoming_loans" >
         </activity>
     </application>
 

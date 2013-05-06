@@ -167,6 +167,8 @@ public class GiveActivity extends Activity {
 		    	 
 		    	 EditText amount = (EditText)findViewById(R.id.add_amount);
 		    	 
+		    	 EditText loanInfo = (EditText)findViewById(R.id.add_loan_info);
+		    	 
 		    	 loan.setToPersonId(toPersonId);
 		    	 loan.setFromPersonId(fromPersonId); 
 		    	 loan.setToGroupId(toGroupId);
@@ -174,6 +176,13 @@ public class GiveActivity extends Activity {
 		    	 loan.setLoanDue(calendarAsString(dueDateTime));
 		    	 loan.setAmount(Float.valueOf(amount.getText().toString()));
 		    	 loan.setSettled(false);
+		    	 
+		    	 if(null != loanInfo){
+		    		 loan.setInfo(loanInfo.getText().toString());
+		    	 } else {
+		    		 loan.setInfo(" ");
+		    	 }
+		    	 
 		    	 Log.i(TAG, "Path is: " + loansFileName + Integer.toString(currentLoanId));
 		    	 
 		    	 if(isNewLoan){
@@ -326,7 +335,11 @@ public class GiveActivity extends Activity {
 	};
 
 	protected String calendarAsString(Calendar dueDateTime2) {
-		return new SimpleDateFormat("MM/dd/yyyy").format(dueDateTime2.getTime());
+		String calString = "";
+		if(null!=dueDateTime2){
+			calString = new SimpleDateFormat("MM/dd/yyyy").format(dueDateTime2.getTime());
+		}
+		return calString;
 	}
 	
 	
