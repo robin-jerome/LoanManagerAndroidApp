@@ -8,9 +8,189 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".LoanDescriptionActivity" >
 
-    <TextView
+    <ScrollView
+        android:id="@+id/loanDescscrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/to_person_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="25dp"
+                android:text="To Person" />
+
+            <TextView
+                android:id="@+id/to_person_name_value"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/to_person_name"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_toRightOf="@id/to_person_name"
+                android:text="Not Selected"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/to_group_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/to_person_name_value"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="25dp"
+                android:layout_toLeftOf="@+id/to_person_name_value"
+                android:text="To Group" />
+
+            <TextView
+                android:id="@+id/to_group_name_value"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/to_group_name"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_toRightOf="@id/to_group_name"
+                android:text="Not Selected"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/from_person_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/to_group_name"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="25dp"
+                android:layout_toLeftOf="@+id/to_group_name_value"
+                android:text="From" />
+
+            <TextView
+                android:id="@+id/from_person_name_value"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/from_person_name"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_toRightOf="@id/from_person_name"
+                android:text="Not Selected"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/amount_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/from_person_name"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="25dp"
+                android:layout_toLeftOf="@+id/from_person_name_value"
+                android:text="Amount" />
+
+            <TextView
+                android:id="@+id/amount_value"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/amount_text"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_toRightOf="@id/amount_text"
+                android:text="Not Selected"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/loan_date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/amount_text"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_toLeftOf="@+id/amount_value"
+                android:text="Loan Date" />
+
+            <TextView
+                android:id="@+id/loan_date_value"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/loan_date_text"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_toRightOf="@id/loan_date_text"
+                android:text="Not Selected"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/due_date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/loan_date_text"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_toLeftOf="@+id/loan_date_value"
+                android:text="Due Date" />
+
+            <TextView
+                android:id="@+id/due_date_value"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/due_date_text"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_toRightOf="@id/due_date_text"
+                android:text="Not Selected"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/loan_info_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/due_date_text"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="25dp"
+                android:layout_toLeftOf="@+id/due_date_value"
+                android:text="Comments" />
+
+            <TextView
+                android:id="@+id/loan_info_value"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/loan_info_label"
+                android:layout_below="@+id/due_date_value"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_toRightOf="@+id/loan_info_label"
+                android:text="Not Selected"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </RelativeLayout>
+    </ScrollView>
+    <Button
+        android:id="@+id/loan_button_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="65dp"
+        android:text="Edit" />
+
+    <Button
+        android:id="@+id/loan_button_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="30dp"
+        android:layout_toRightOf="@+id/loan_button_edit"
+        android:text="Delete" />
 
 </RelativeLayout>
