@@ -60,15 +60,26 @@ public class MainMenuActivity extends Activity {
 		     }
 		 });
 		
-		/*Button showLoan = (Button)findViewById(R.id.bTake);
+		Button settledLoans = (Button)findViewById(R.id.bsLoans);
 		
-		showLoan.setOnClickListener(new View.OnClickListener() {
+		settledLoans.setOnClickListener(new View.OnClickListener() {
 		     @Override
 		     public void onClick(View v) {		    	 
-		     Intent intent = new Intent(MainMenuActivity.this, LoanDescriptionActivity.class);	
+		     Intent intent = new Intent(MainMenuActivity.this, SettledLoansActivity.class);	
 		     startActivity(intent);
 		     }
-		 });*/
+		 });
+		
+		Button upcomingLoans = (Button)findViewById(R.id.bDeadlines);
+		
+		upcomingLoans.setOnClickListener(new View.OnClickListener() {
+		     @Override
+		     public void onClick(View v) {		    	 
+		     Intent intent = new Intent(MainMenuActivity.this, UpcomingLoansActivity.class);	
+		     startActivity(intent);
+		     }
+		 });
+		
 		
 		Button taken = (Button)findViewById(R.id.bTake2);
 		
