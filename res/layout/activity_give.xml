@@ -126,23 +126,6 @@
                 android:onClick="chooseLoanDate"
                 android:text="Set Date" />
 
-            <!--
-            EditText
-                android:id="@+id/add_loan_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/add_loan_date_text"
-                android:layout_below="@+id/add_amount"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="25dp"
-                android:layout_toRightOf="@+id/add_loan_date_text"
-                android:ems="10"
-                android:inputType="numberDecimal">
-
-                <requestFocus />
-            </EditText-->
-
             <TextView
                 android:id="@+id/add_due_date_text"
                 android:layout_width="wrap_content"
@@ -165,33 +148,6 @@
                 android:onClick="chooseDueDate"
                 android:text="Set Date" />
 
-            <!--
-            DatePicker
-                android:id="@+id/due_date_picker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/add_due_date_text"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="25dp"
-                android:layout_toRightOf="@+id/add_due_date_text" />
-
-            <EditText
-                android:id="@+id/add_due_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/add_due_date_text"
-                android:layout_below="@+id/add_due_date"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="25dp"
-                android:layout_toRightOf="@+id/add_due_date_text"
-                android:ems="10"
-                android:inputType="numberDecimal" >
-
-                <requestFocus />
-            </EditText-->
-
             <TextView
                 android:id="@+id/add_loan_info_label"
                 android:layout_width="wrap_content"
@@ -200,7 +156,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="25dp"
                 android:layout_toLeftOf="@+id/due_date_picker"
-                android:text="Comments" />
+                android:text="Loan Info" />
 
             <EditText
                 android:id="@+id/add_loan_info"

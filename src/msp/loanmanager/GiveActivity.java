@@ -33,9 +33,11 @@ public class GiveActivity extends Activity {
 
 	private DataHandler dataHandler = new DataHandler();
 	
-	private Loan eLoan;
+	private static boolean isNewLoan = true;
 	
-	private int loanId;
+	private static Loan editLoan = null;
+	
+	private static int currentLoanId;
 	
 	private static final String TAG = "GiveActivity"; 
 	
@@ -69,37 +71,54 @@ public class GiveActivity extends Activity {
 		
 		Bundle extras = getIntent().getExtras();        
 
-        if (extras != null) {
-        	loanId = extras.getInt("loan_id");     
-        	Util.showToastMessage(getApplicationContext(), "Opening Loan with Id:"+loanId);
-            eLoan = Functions.findLoanById(loanId);
-            EditText info = (EditText)findViewById(R.id.add_loan_info);
-            info.setText(eLoan.getInfo());	
-            
-            EditText amount = (EditText)findViewById(R.id.add_amount);
-            amount.setText(String.valueOf(eLoan.getAmount()));
-            
-            Button dueDateButton = (Button)findViewById(R.id.due_date_picker);
-			dueDateButton.setText(eLoan.getLoanDue());
-			try {
-				Date dueDate = new SimpleDateFormat("MM/dd/yyyy").parse(eLoan.getLoanDue());
-				dueDateTime.set(dueDate.getYear(), dueDate.getMonth(), dueDate.getDay());
-			} catch (ParseException e) {
-				// Do nothing
+		if (extras != null) {
+			currentLoanId = extras.getInt("loan_id");  
+			
+			if(currentLoanId > 0) {
+				// This is an already existing loan
+				isNewLoan = false;
+				Util.showToastMessage(getApplicationContext(), "Opening Loan with Id:"+currentLoanId);
+
+				if(null != Functions.findLoanById(currentLoanId)){
+					editLoan = Functions.findLoanById(currentLoanId);
+				}
+
+				if(editLoan == null) {
+					Util.showToastMessage(getApplicationContext(), "Loan with Id:"+currentLoanId+" no present");
+				} else {
+					EditText info = (EditText)findViewById(R.id.add_loan_info);
+					info.setText(editLoan.getInfo());	
+
+					EditText amount = (EditText)findViewById(R.id.add_amount);
+					amount.setText(String.valueOf(editLoan.getAmount()));
+
+					Button dueDateButton = (Button)findViewById(R.id.due_date_picker);
+					dueDateButton.setText(editLoan.getLoanDue());
+					try {
+						Date dueDate = new SimpleDateFormat("MM/dd/yyyy").parse(editLoan.getLoanDue());
+						dueDateTime.set(dueDate.getYear(), dueDate.getMonth(), dueDate.getDay());
+					} catch (ParseException e) {
+						// Do nothing
+					}
+
+					Button loanDateButton = (Button)findViewById(R.id.loan_date_picker);
+					loanDateButton.setText(editLoan.getLoanDate());
+					try {
+						Date loanDate = new SimpleDateFormat("MM/dd/yyyy").parse(editLoan.getLoanDate());
+						loanDateTime.set(loanDate.getYear(), loanDate.getMonth(), loanDate.getDay());
+					} catch (ParseException e) {
+						// Do nothing
+					}
+				}
+
+			} else {
+				// This is a new loan
+				isNewLoan = true;
+				Util.showToastMessage(getApplicationContext(), "Creating new Loan");
 			}
-            
-			Button loanDateButton = (Button)findViewById(R.id.loan_date_picker);
-			loanDateButton.setText(eLoan.getLoanDate());
-			try {
-				Date loanDate = new SimpleDateFormat("MM/dd/yyyy").parse(eLoan.getLoanDate());
-				loanDateTime.set(loanDate.getYear(), loanDate.getMonth(), loanDate.getDay());
-			} catch (ParseException e) {
-				// Do nothing
-			}
-            
-         }
+		}
 		
-		// Adding person names on Spinner
+		// Adding person names & group names on Spinner
 		addToPersonsOnSpinner();
 		addFromPersonsOnSpinner();
 		addGroupsOnSpinner();
@@ -108,13 +127,24 @@ public class GiveActivity extends Activity {
 		add.setOnClickListener(new View.OnClickListener() {
 		     @Override
 		     public void onClick(View v) {
+		    	 
 		    	 Loan loan = new Loan();
 		    	 
-		    	 if (MainActivity.loans.size() == 0){
-		    		 loanId = 1000;
-		    	 }else{
-		    		 loanId = MainActivity.loans.get(MainActivity.loans.size()-1).getId() + 1;		    		
+		    	 if(!isNewLoan) {
+		    		 // loading values from previously selected loan
+		    		 loan = editLoan;
+		    		 currentLoanId = editLoan.getId();
+		    	 } else {
+		    		 // Its a new Loan
+		    		 
+		    		 if (MainActivity.loans.size() == 0){
+			    		 currentLoanId = 1000;
+			    	 } else{
+			    		 currentLoanId = MainActivity.loans.get(MainActivity.loans.size()-1).getId() + 1;		    		
+			    	 }
+		    		 loan.setId(currentLoanId);
 		    	 }
+		    	 
 		    	 String toPersonName = String.valueOf(toPersonNameSpinner.getSelectedItem());
 		    	 String toGroupName = String.valueOf(toGroupNameSpinner.getSelectedItem());
 		    	 String fromPersonName = String.valueOf(fromPersonNameSpinner.getSelectedItem());
@@ -137,22 +167,54 @@ public class GiveActivity extends Activity {
 		    	 
 		    	 EditText amount = (EditText)findViewById(R.id.add_amount);
 		    	 
-		    	 loan.setId(loanId);
 		    	 loan.setToPersonId(toPersonId);
-		    	 loan.setFromPersonId(fromPersonId); // Since Action is give - Its always from the user of the App
+		    	 loan.setFromPersonId(fromPersonId); 
 		    	 loan.setToGroupId(toGroupId);
 		    	 loan.setLoanDate(calendarAsString(loanDateTime));
 		    	 loan.setLoanDue(calendarAsString(dueDateTime));
-		    	 loan.setAmount(Integer.valueOf(amount.getText().toString()));
+		    	 loan.setAmount(Float.valueOf(amount.getText().toString()));
 		    	 loan.setSettled(false);
+		    	 Log.i(TAG, "Path is: " + loansFileName + Integer.toString(currentLoanId));
 		    	 
-		    	 Log.i(TAG, "Path is: " + loansFileName + Integer.toString(loanId));
-		    	 MainActivity.loans.add(loan);	    	
-		    	 dataHandler.writeLoan(loansFileName + Integer.toString(loanId), loan);
-		    	 Log.i(TAG, "Loan Written to file");
-		    	 Util.showToastMessage(getApplicationContext(),"Loan Saved Successfully");
+		    	 if(isNewLoan){
+		    		 // Add new loan
+		    		 MainActivity.loans.add(loan);
+		    		 dataHandler.writeLoan(loansFileName + Integer.toString(currentLoanId), loan);
+			    	 Log.i(TAG, "New Loan Written to file");
+			    	 Util.showToastMessage(getApplicationContext(),"Loan Added Successfully Id:"+currentLoanId);
+			    	 Intent intent = new Intent(GiveActivity.this, MainActivity.class);	
+				     startActivity(intent);
+		    	 } else {
+		    		 // Edit existing loan
+		    		 for (int i = 0; i < MainActivity.loans.size(); i++) {
+		    			 if(MainActivity.loans.get(i).getId() == currentLoanId){
+		    				 Log.i(TAG, "Found existing Loan");
+		    				 MainActivity.loans.set(i, editLoan);
+		    				 Log.i(TAG, "Loans list updated Successfully");
+		    				 dataHandler.removeFile(loansFileName + Integer.toString(currentLoanId));
+		    				 Log.i(TAG, "Loan file deleted Successfully");
+		    				 dataHandler.writeLoan(loansFileName + Integer.toString(currentLoanId), loan);
+		    				 Log.i(TAG, "New Loan Updated in file");
+		    				 Util.showToastMessage(getApplicationContext(),"Loan Updated Successfully");
+		    				 Intent intent = new Intent(GiveActivity.this, MainActivity.class);	
+		    				 startActivity(intent);
+		    				 break;
+		    			 }
+		    		 }
+
+		    	 }
+		     }
+		 });
+		
+		ImageButton cancel = (ImageButton)findViewById(R.id.add_loan_cancel);
+		cancel.setOnClickListener(new View.OnClickListener() {
+		     @Override
+		     public void onClick(View v) {
+		    	 isNewLoan = true;
+		    	 editLoan = null;
+		    	 currentLoanId = 0;
 		    	 Intent intent = new Intent(GiveActivity.this, MainActivity.class);	
-			     startActivity(intent);
+				 startActivity(intent);
 		     }
 		 });
 
@@ -188,8 +250,8 @@ public class GiveActivity extends Activity {
 		dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		toPersonNameSpinner.setAdapter(dataAdapter);
 		
-		if((null != eLoan) && (eLoan.getToPersonId() !=-1)){
-			toPersonNameSpinner.setSelection(list.indexOf(Functions.findPersonById(eLoan.getToPersonId()).getName()));
+		if((null != editLoan) && (editLoan.getToPersonId() !=-1)){
+			toPersonNameSpinner.setSelection(list.indexOf(Functions.findPersonById(editLoan.getToPersonId()).getName()));
 		} else {
 			toPersonNameSpinner.setSelection(list.indexOf(NO_SELECTION));
 		}
@@ -210,8 +272,8 @@ public class GiveActivity extends Activity {
 		dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		fromPersonNameSpinner.setAdapter(dataAdapter);
 		
-		if((null != eLoan) && (eLoan.getFromPersonId() !=-1)){
-			fromPersonNameSpinner.setSelection(list.indexOf(Functions.findPersonById(eLoan.getFromPersonId()).getName()));
+		if((null != editLoan) && (editLoan.getFromPersonId() !=-1)){
+			fromPersonNameSpinner.setSelection(list.indexOf(Functions.findPersonById(editLoan.getFromPersonId()).getName()));
 		} else {
 			fromPersonNameSpinner.setSelection(list.indexOf(NO_SELECTION));
 		}
@@ -231,8 +293,8 @@ public class GiveActivity extends Activity {
 		dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		toGroupNameSpinner.setAdapter(dataAdapter);	
 		
-		if((null != eLoan) && (eLoan.getToGroupId()!=-1)){
-			toGroupNameSpinner.setSelection(list.indexOf(Functions.findGroupById(eLoan.getToGroupId()).getGroupName()));
+		if((null != editLoan) && (editLoan.getToGroupId()!=-1)){
+			toGroupNameSpinner.setSelection(list.indexOf(Functions.findGroupById(editLoan.getToGroupId()).getGroupName()));
 		} else {
 			toGroupNameSpinner.setSelection(list.indexOf(NO_SELECTION));
 		}
