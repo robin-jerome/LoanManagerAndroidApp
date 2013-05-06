@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="180dp"
         android:layout_alignLeft="@+id/bGive"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="5dp"
@@ -51,7 +51,7 @@
             android:layout_marginLeft="2dp"
             android:layout_weight="50"
             android:text="Loans to Group"
-            android:textSize="20sp" />
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/bGive2"
@@ -60,7 +60,7 @@
             android:layout_marginLeft="2dp"
             android:layout_weight="50"
             android:text="Loans to Person"
-            android:textSize="20sp" />
+            android:textSize="20dp" />
 
     </LinearLayout>
     
@@ -78,7 +78,7 @@
 	        android:layout_marginLeft="2dp"
 	        android:layout_weight="50"
 	        android:text="Upcoming Deadlines"
-	        android:textSize="20sp" />
+	        android:textSize="20dp" />
 
 	    <Button
 	        android:id="@+id/bsLoans"
@@ -88,7 +88,7 @@
 	        android:layout_toRightOf="@+id/bDeadlines"
 	        android:layout_weight="50"
 	        android:text="Settled loans"
-	        android:textSize="20sp" />
+	        android:textSize="20dp" />
 
 	</LinearLayout>
 
@@ -106,7 +106,7 @@
 	        android:layout_marginLeft="2dp"
 	        android:layout_weight="50"
 	        android:text="My Groups"
-	        android:textSize="20sp" />
+	        android:textSize="20dp" />
 
 	    <Button
 	        android:id="@+id/bPersons"
@@ -116,7 +116,7 @@
 	        android:layout_toRightOf="@+id/bGroups"
 	        android:layout_weight="50"
 	        android:text="My Persons"
-	        android:textSize="20sp" />
+	        android:textSize="20dp" />
 
 	</LinearLayout>
 	   
