@@ -111,5 +111,12 @@ public class PersonDescriptionActivity extends Activity {
         }		
 		
 	}
+	
+	@Override
+	protected void onPause() {					//	Function called before switching over the activity
+		// TODO Auto-generated method stub
+		super.onPause();
+		finish();							// We are trying to kill the old activity here ...
+	}
 
 }
