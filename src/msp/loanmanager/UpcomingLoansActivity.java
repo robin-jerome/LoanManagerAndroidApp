@@ -59,15 +59,13 @@ public class UpcomingLoansActivity extends Activity {
 			
 			String loanDesc = "";
 			if(actloan.getFromPersonId()!= -1 && null != Functions.findPersonById(actloan.getFromPersonId())){
-				loanDesc = "From: " + Functions.findPersonById(actloan.getFromPersonId()).getName() + " (P) ";
+				loanDesc = Functions.findPersonById(actloan.getFromPersonId()).getName() + " (P) ";
 			}
 			
 			if(actloan.getToPersonId()!= -1 && null != Functions.findPersonById(actloan.getToPersonId())){
-				loanDesc += " -> To: " + Functions.findPersonById(actloan.getToPersonId()).getName() + " (P) ";
-			}
-			
-			if(actloan.getToGroupId()!= -1 && null != Functions.findGroupById(actloan.getToGroupId())){
-				loanDesc += " -> To: " + Functions.findGroupById(actloan.getToGroupId()).getGroupName() + " (G) ";
+				loanDesc += " =>" + Functions.findPersonById(actloan.getToPersonId()).getName() + " (P) ";
+			} else if(actloan.getToGroupId()!= -1 && null != Functions.findGroupById(actloan.getToGroupId())){
+				loanDesc += " =>" + Functions.findGroupById(actloan.getToGroupId()).getGroupName() + " (G) ";
 			}
 			
 			name.setText(loanDesc);	        		            	
