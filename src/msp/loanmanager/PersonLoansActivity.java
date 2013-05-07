@@ -45,7 +45,7 @@ public class PersonLoansActivity extends Activity {
 		if (extras != null) {
 			id = extras.getInt("person_id");
 			Person person = Functions.findPersonById(id);
-			TextView tv = (TextView)findViewById(R.id.bar_add_title);
+			TextView tv = (TextView) findViewById(R.id.bar_add_title);
 			tv.setText(person.getName());
 		}
 
@@ -68,8 +68,8 @@ public class PersonLoansActivity extends Activity {
 								LayoutParams.WRAP_CONTENT));
 
 				tableRowParams.setMargins(2, 2, 2, 2);
-				
-				tr.setId(actloan.getId());				
+
+				tr.setId(actloan.getId());
 				tr.setLayoutParams(tableRowParams);
 				if (actloan.getFromPersonId() == MainActivity.me_ID) {
 					tr.setBackgroundColor(Color.rgb(152, 251, 152));
@@ -132,28 +132,27 @@ public class PersonLoansActivity extends Activity {
 						.findViewById(R.id.dialog_table);
 
 				TableRow tr = new TableRow(context);
-				// TableLayout.LayoutParams tableRowParams = new
-				// TableLayout.LayoutParams(new
-				// LayoutParams(LayoutParams.WRAP_CONTENT,
-				// LayoutParams.WRAP_CONTENT));
-				// tr.setLayoutParams(tableRowParams);
 
 				TextView name1 = new TextView(context);
-				// LayoutParams infoparams = new
-				// TableRow.LayoutParams(LayoutParams.WRAP_CONTENT,
-				// LayoutParams.WRAP_CONTENT);
-				// name1.setLayoutParams(infoparams);
+
 				Person p1 = Functions.findPersonById(results.getFromId());
 				name1.setText(p1.getName());
+				name1.setTextSize(17);
 				tr.addView(name1);
+
+				TextView arrow = new TextView(context);
+				arrow.setText("-->");
+				tr.addView(arrow);
 
 				TextView name2 = new TextView(context);
 				Person p2 = Functions.findPersonById(results.getToId());
 				name2.setText(p2.getName());
+				name2.setTextSize(17);
 				tr.addView(name2);
 
 				TextView amount = new TextView(context);
 				amount.setText(Float.toString(results.getAmount()));
+				amount.setTextSize(17);
 				tr.addView(amount);
 
 				tl.addView(tr);
@@ -165,7 +164,7 @@ public class PersonLoansActivity extends Activity {
 				alertDialogBuilder
 						.setView(dialoglayout)
 						.setCancelable(false)
-						.setPositiveButton("Yes",
+						.setPositiveButton("Settle",
 								new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog,
 											int id) {
@@ -186,7 +185,7 @@ public class PersonLoansActivity extends Activity {
 										PersonLoansActivity.this.finish();
 									}
 								})
-						.setNegativeButton("No",
+						.setNegativeButton("Cancel",
 								new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog,
 											int id) {
@@ -213,7 +212,7 @@ public class PersonLoansActivity extends Activity {
 			LayoutParams infoparams = new TableRow.LayoutParams(
 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 			info.setLayoutParams(infoparams);
-			info.setPadding(5, 5, 5, 5);
+			info.setPadding(20, 20, 20, 20);
 			info.setTextColor(Color.BLACK);
 			tr.addView(info);
 

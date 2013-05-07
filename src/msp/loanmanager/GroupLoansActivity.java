@@ -141,25 +141,32 @@ public class GroupLoansActivity extends Activity {
 
 				for(int i=0; i<results.size(); i++){
 					TableRow tr = new TableRow(context);
-//					TableLayout.LayoutParams tableRowParams = new TableLayout.LayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-//		     		tr.setLayoutParams(tableRowParams);   
+					TableLayout.LayoutParams tableRowParams = new TableLayout.LayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+		     		tr.setLayoutParams(tableRowParams);   
 		     		
 					TextView name1 = new TextView(context);
 //					LayoutParams infoparams = new TableRow.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 //					name1.setLayoutParams(infoparams);
 					Person p1 = Functions.findPersonById(results.get(i).getFromId());
 					name1.setText(p1.getName());
+					name1.setTextSize(17);
 					tr.addView(name1);
 
+					TextView arrow = new TextView(context);
+					arrow.setText("-->");
+					tr.addView(arrow);					
+					
 					TextView name2 = new TextView(context);
 					Person p2 = Functions.findPersonById(results.get(i).getToId());
 					name2.setText(p2.getName());
+					name2.setTextSize(17);
 					tr.addView(name2);
 					
 					TextView amount = new TextView(context);					
 					amount.setText(Float.toString(results.get(i).getAmount()));
-					tr.addView(amount);				
-					
+					amount.setTextSize(17);
+					tr.addView(amount);		
+										
 					tl.addView(tr);
 				}				
 				
@@ -169,7 +176,7 @@ public class GroupLoansActivity extends Activity {
 				alertDialogBuilder
 						.setView(dialoglayout)
 						.setCancelable(false)
-						.setPositiveButton("Yes",
+						.setPositiveButton("Settle",
 								new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog,	int id) {										
 										for(int i=0; i<iloans.size(); i++){
@@ -181,7 +188,7 @@ public class GroupLoansActivity extends Activity {
 										GroupLoansActivity.this.finish();
 									}
 								})
-						.setNegativeButton("No",
+						.setNegativeButton("Cancel",
 								new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog,	int id) {										
 										dialog.cancel();
@@ -207,7 +214,7 @@ public class GroupLoansActivity extends Activity {
 			LayoutParams infoparams = new TableRow.LayoutParams(
 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 			info.setLayoutParams(infoparams);
-			info.setPadding(5, 5, 5, 5);
+			info.setPadding(20, 20, 20, 20);
 			info.setTextColor(Color.BLACK);
 			tr.addView(info);
 
