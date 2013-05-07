@@ -40,6 +40,8 @@ public class AddGroupActivity extends Activity {
             name.setText(egroup.getGroupName());
             EditText info = (EditText)findViewById(R.id.add_group_info);
             info.setText(egroup.getInfo());	
+            Button b = (Button)findViewById(R.id.add_group_confirm);
+            b.setText("Update");
         }
 		
         ScrollView sv = (ScrollView) findViewById(R.id.add_group_scroll);

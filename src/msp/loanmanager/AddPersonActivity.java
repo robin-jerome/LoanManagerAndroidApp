@@ -35,6 +35,8 @@ public class AddPersonActivity extends Activity {
             name.setText(person.getName());
             EditText info = (EditText)findViewById(R.id.add_person_info);
             info.setText(person.getInfo());	
+            Button b = (Button)findViewById(R.id.add_person_confirm);
+            b.setText("Update");
         }
         
 		Button add = (Button)findViewById(R.id.add_person_confirm);
