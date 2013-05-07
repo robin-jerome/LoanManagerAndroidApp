@@ -1,105 +1,95 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     android:background="#000"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context=".AddGroupActivity" >
 
-    <TextView
-        android:id="@+id/add_group_name_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="20dp"
-        android:textColor="#DDDDDD"
-        android:text="Group Name"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <EditText
-        android:id="@+id/add_group_name"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/add_group_name_title"
-        android:layout_below="@+id/add_group_name_title"
-        android:paddingRight="30dp" >
+        android:orientation="horizontal" >
 
-        <requestFocus />
-    </EditText>
+        <TextView
+            android:id="@+id/textView0"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="80"
+            android:gravity="center_vertical"
+            android:paddingLeft="10sp"
+            android:text="Description "
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:id="@+id/add_group_choose_persons_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/add_group_name"
-        android:layout_below="@+id/add_group_name"
-        android:layout_marginTop="20dp"
-        android:text="Choose persons"
-        android:textColor="#DDDDDD"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <ScrollView
-        android:id="@+id/add_group_scroll"
-        android:layout_width="wrap_content"
-        android:layout_height="200px"
-        android:layout_alignLeft="@+id/add_group_choose_persons_title"
-        android:layout_below="@+id/add_group_choose_persons_title"
-        android:layout_marginTop="20dp"
-         >
-
-        <TableLayout
-            android:id="@+id/add_group_choose_persons_table"
+        <Button
+            android:id="@+id/add_group_confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-             >
+            android:gravity="center"
+            android:text="Add" />
+    </LinearLayout>
 
-          
-        </TableLayout>
-
-    </ScrollView>
-
-    <TextView
-        android:id="@+id/add_group_info_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/add_group_scroll"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="100dp"
-        android:textColor="#DDDDDD"
-        android:text="Additional information"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <EditText
-        android:id="@+id/add_group_info"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/add_group_info_label"
-        android:layout_alignTop="@+id/add_group_info_label"
-        android:layout_marginTop="34dp"
-        android:paddingRight="30dp"
-        android:inputType="textMultiLine" />
-    
-    
-    <Button
-        android:id="@+id/add_group_confirm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-	    android:layout_below="@+id/add_group_info"
-        android:layout_alignLeft="@+id/add_group_info" 
-        android:layout_alignRight="@+id/add_group_choose_persons_title"  
-        android:text="OK" />
+        android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/add_group_cancel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-	    android:layout_below="@+id/add_group_info"  	    
-        android:layout_toRightOf="@+id/add_group_info_label"
-        android:text="Cancel" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
 
-</RelativeLayout>
+            <TextView
+                android:id="@+id/add_group_name_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Group Name"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#DDDDDD" />
+
+            <EditText
+                android:id="@+id/add_group_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="30dp" >
+
+                <requestFocus />
+            </EditText>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/add_group_choose_persons_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose persons"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#DDDDDD" />
+
+        <ScrollView
+            android:id="@+id/add_group_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="200sp" >
+
+            <TableLayout
+                android:id="@+id/add_group_choose_persons_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </TableLayout>
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/add_group_info_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Additional information"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#DDDDDD" />
+
+        <EditText
+            android:id="@+id/add_group_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine" />
+    </LinearLayout>
+
+</LinearLayout>
