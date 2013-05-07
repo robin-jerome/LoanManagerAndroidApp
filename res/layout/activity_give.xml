@@ -13,7 +13,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:orientation="horizontal" >
 
             <TextView
@@ -175,27 +174,30 @@
                 <requestFocus />
             </EditText>
 
-            <ImageButton
-                android:id="@+id/add_loan_cancel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_margin="15dp"
-                android:layout_toRightOf="@+id/add_loan_confirm"
-                android:contentDescription="Cancel"
-                android:src="@drawable/cancel" />
-
-            <ImageButton
-                android:id="@+id/add_loan_confirm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_margin="15dp"
-                android:layout_toRightOf="@+id/add_loan_info_label"
-                android:contentDescription="Ok"
-                android:src="@drawable/ok" />
+           
 
         </RelativeLayout>
     </ScrollView>
+    <ImageButton
+        android:id="@+id/add_loan_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="75dp"
+        android:contentDescription="Ok"
+        android:src="@drawable/ok" />
+
+    <ImageButton
+        android:id="@+id/add_loan_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="30dp"
+        android:layout_toRightOf="@+id/add_loan_confirm"
+        android:contentDescription="Cancel"
+        android:src="@drawable/cancel" />
 
 </RelativeLayout>
