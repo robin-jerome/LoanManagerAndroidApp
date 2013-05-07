@@ -33,7 +33,7 @@
             android:layout_marginLeft="2dp"
             android:layout_weight="100"
             android:text="Add Loan"
-            android:textSize="20sp" />
+            android:textSize="20dp" />
 
     </LinearLayout>
     
