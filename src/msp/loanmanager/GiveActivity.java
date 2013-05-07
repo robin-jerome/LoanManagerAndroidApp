@@ -134,6 +134,7 @@ public class GiveActivity extends Activity {
 		add.setOnClickListener(new View.OnClickListener() {
 		     @Override
 		     public void onClick(View v) {
+		    	 try {
 		    	 
 		    	 Loan loan = new Loan();
 		    	 
@@ -234,8 +235,12 @@ public class GiveActivity extends Activity {
 		    		 }
 
 		    	 }
+		    	 } catch (Exception e) {
+		    		 Util.showToastMessage(getApplicationContext(),"Something went wrong !");
+		    		 Intent intent = new Intent(GiveActivity.this, MainMenuActivity.class);	
+		    		 startActivity(intent);
+		    	 }
 		     }
-
 			
 		 });
 		
