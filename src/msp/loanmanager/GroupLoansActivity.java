@@ -45,6 +45,9 @@ public class GroupLoansActivity extends Activity {
 
 		if (extras != null) {
 			id = extras.getInt("group_id");
+			Group group = Functions.findGroupById(id);
+			TextView tv = (TextView)findViewById(R.id.bar_add_title);
+			tv.setText(group.getGroupName());
 		}
 
 		TableLayout tl = (TableLayout) findViewById(R.id.given_table);
@@ -61,13 +64,14 @@ public class GroupLoansActivity extends Activity {
 				TableLayout.LayoutParams tableRowParams = new TableLayout.LayoutParams(
 						new LayoutParams(LayoutParams.WRAP_CONTENT,
 								LayoutParams.WRAP_CONTENT));
-
+				tableRowParams.setMargins(2, 2, 2, 2);
+				
 				tr.setLayoutParams(tableRowParams);
 				tr.setId(actloan.getId());
 				if (actloan.getFromPersonId() == MainActivity.me_ID) {
-					tr.setBackgroundColor(Color.GREEN);
+					tr.setBackgroundColor(Color.rgb(152, 251, 152));
 				} else {
-					tr.setBackgroundColor(Color.RED);
+					tr.setBackgroundColor(Color.rgb(250, 128, 114));
 				}
 
 				TextView name = new TextView(this);
@@ -81,20 +85,20 @@ public class GroupLoansActivity extends Activity {
 				name.setTextSize(20);
 				name.setTextColor(Color.BLACK);
 				name.setGravity(Gravity.LEFT);
-				name.setPadding(5, 0, 5, 0);
+				name.setPadding(20, 20, 20, 20);
 				tr.addView(name);
 
-				TextView item = new TextView(this);
-				LayoutParams itemparams = new TableRow.LayoutParams(
-						LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-				item.setLayoutParams(itemparams);
-
-				item.setText(actloan.getInfo());
-				item.setTextSize(20);
-				item.setTextColor(Color.BLACK);
-				item.setGravity(Gravity.LEFT);
-				item.setPadding(5, 0, 5, 0);
-				tr.addView(item);
+//				TextView item = new TextView(this);
+//				LayoutParams itemparams = new TableRow.LayoutParams(
+//						LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+//				item.setLayoutParams(itemparams);
+//
+//				item.setText(actloan.getInfo());
+//				item.setTextSize(20);
+//				item.setTextColor(Color.BLACK);
+//				item.setGravity(Gravity.LEFT);
+//				item.setPadding(20, 20, 20, 20);
+//				tr.addView(item);
 
 				TextView amount = new TextView(this);
 				LayoutParams amountparams = new TableRow.LayoutParams(
@@ -105,7 +109,8 @@ public class GroupLoansActivity extends Activity {
 				amount.setTextColor(Color.BLACK);
 				amount.setTypeface(Typeface.DEFAULT_BOLD);
 				amount.setGravity(Gravity.RIGHT);
-				amount.setPadding(5, 0, 5, 0);
+				amount.setTextSize(20);
+				amount.setPadding(20, 20, 20, 20);
 				tr.addView(amount);
 
 	            tr.setOnClickListener(new View.OnClickListener() {
