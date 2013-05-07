@@ -51,8 +51,6 @@ public class UpcomingLoansActivity extends Activity {
 			tableRowParams.setMargins(2, 2, 2, 2);
 			tr.setId(actloan.getId());
 
-			
-			
 			if (actloan.getFromPersonId() == MainActivity.me_ID) {
 				tr.setBackgroundColor(Color.rgb(152, 251, 152));
 			} else if (actloan.getToPersonId() == MainActivity.me_ID) {

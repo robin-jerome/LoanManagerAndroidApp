@@ -77,14 +77,14 @@ public class GiveActivity extends Activity {
 			if(currentLoanId > 0) {
 				// This is an already existing loan
 				isNewLoan = false;
-				Util.showToastMessage(getApplicationContext(), "Opening Loan with Id:"+currentLoanId);
+				Util.showToastMessage(getApplicationContext(), "Opening Loan");
 
 				if(null != Functions.findLoanById(currentLoanId)){
 					editLoan = Functions.findLoanById(currentLoanId);
 				}
 
 				if(editLoan == null) {
-					Util.showToastMessage(getApplicationContext(), "Loan with Id:"+currentLoanId+" no present");
+					Util.showToastMessage(getApplicationContext(), "Loan not present");
 				} else {
 					EditText info = (EditText)findViewById(R.id.add_loan_info);
 					info.setText(editLoan.getInfo());	
@@ -211,7 +211,7 @@ public class GiveActivity extends Activity {
 		    		 MainActivity.loans.add(loan);
 		    		 dataHandler.writeLoan(loansFileName + Integer.toString(currentLoanId), loan);
 			    	 Log.i(TAG, "New Loan Written to file");
-			    	 Util.showToastMessage(getApplicationContext(),"Loan Added Successfully Id:"+currentLoanId);
+			    	 Util.showToastMessage(getApplicationContext(),"Loan Added Successfully");
 			    	 resetToNewLoan();
 			    	 Intent intent = new Intent(GiveActivity.this, MainMenuActivity.class);	
 				     startActivity(intent);

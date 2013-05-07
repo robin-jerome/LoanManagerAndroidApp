@@ -32,13 +32,12 @@ public class LoanDescriptionActivity extends Activity {
 			Loan loan = Functions.findLoanById(id);
 
 			if(null == loan) {
-				Util.showToastMessage(getApplicationContext(), "Loan with Id:"+id+" not present");
+				Util.showToastMessage(getApplicationContext(), "Loan not present");
 				Intent intent = new Intent(LoanDescriptionActivity.this, MainMenuActivity.class);
 				startActivity(intent);
 			
 			} else {
 				
-				Util.showToastMessage(getApplicationContext(), "Loan with Id:"+id);
 				TextView toPersonName = (TextView)findViewById(R.id.to_person_name_value);
 				Person toPerson = Functions.findPersonById(loan.getToPersonId());
 				if(null != toPerson) {
@@ -87,7 +86,7 @@ public class LoanDescriptionActivity extends Activity {
 						String filename = MainActivity.PATH + "l" + Integer.toString(id);
 						dh.removeFile(filename);
 						Functions.deleteLoan(id);
-						Util.showToastMessage(getApplicationContext(), "Deleting Loan with Id:"+id);
+						Util.showToastMessage(getApplicationContext(), "Deleting Loan");
 						Intent intent = new Intent(LoanDescriptionActivity.this, MainMenuActivity.class);
 						startActivity(intent);
 					}

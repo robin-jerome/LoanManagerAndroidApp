@@ -38,8 +38,10 @@ public class SettledLoansActivity extends Activity {
 			
 			TableRow tr = new TableRow(this);
 			TableLayout.LayoutParams tableRowParams = new TableLayout.LayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+			tableRowParams.setMargins(2, 2, 2, 2);
 
 			tr.setId(actloan.getId());
+			tr.setBackgroundColor(Color.LTGRAY);
 
 			tr.setLayoutParams(tableRowParams); 
 			
@@ -58,13 +60,12 @@ public class SettledLoansActivity extends Activity {
 				loanDesc += "=> " + Functions.findGroupById(actloan.getToGroupId()).getGroupName() + " (G) ";
 			}
 			
-			if (loanDesc.length() > 20) {
-				name.setText(loanDesc.substring(0, 16)+"...");
+			if (loanDesc.length() > 15) {
+				name.setText(loanDesc.substring(0, 12)+"...");
 			} else {
 				name.setText(loanDesc);
 			}
-			
-			name.setText(loanDesc);	        		            	
+        		            	
 			name.setTextSize(17);		            	            
 			name.setTextColor(Color.BLACK);
 			name.setGravity(Gravity.LEFT);
