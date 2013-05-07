@@ -1,217 +1,214 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#DCEBFC"
+    android:orientation="vertical"
     tools:context=".GiveActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView0"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="80"
+            android:gravity="center_vertical"
+            android:paddingLeft="10sp"
+            android:text="Description "
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Button
+            android:id="@+id/add_loan_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Add" />
+    </LinearLayout>
 
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="vertical" >
 
-            <TextView
-                android:id="@+id/add_to_person_name"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="25dp"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:text="To Person" />
+                android:orientation="horizontal" >
 
-            <Spinner
-                android:id="@+id/to_person_name_spinner"
-                android:layout_width="fill_parent"
+                <TextView
+                    android:id="@+id/add_loan_info_label"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="Loan Info"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/add_loan_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:ems="10" >
+
+                    <requestFocus />
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/add_to_person_name"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="25dp"
-                android:layout_toRightOf="@id/add_to_person_name"
-                android:drawSelectorOnTop="true" />
+                android:orientation="horizontal" >
 
-            <TextView
-                android:id="@+id/add_to_group_name"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/add_from_person_name"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="From"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/from_person_name_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:drawSelectorOnTop="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/add_to_person_name"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="25dp"
-                android:layout_toLeftOf="@+id/to_person_name_spinner"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:text="To Group" />
+                android:orientation="horizontal" >
 
-            <Spinner
-                android:id="@+id/to_group_name_spinner"
-                android:layout_width="fill_parent"
+                <TextView
+                    android:id="@+id/add_to_person_name"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="To Person"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/to_person_name_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:drawSelectorOnTop="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/add_to_group_name"
-                android:layout_below="@+id/to_person_name_spinner"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="25dp"
-                android:layout_toRightOf="@id/add_to_group_name"
-                android:drawSelectorOnTop="true" />
+                android:orientation="horizontal" >
 
-            <TextView
-                android:id="@+id/add_from_person_name"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/add_to_group_name"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="To Group"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/to_group_name_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:drawSelectorOnTop="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/add_to_group_name"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="25dp"
-                android:layout_toLeftOf="@+id/to_group_name_spinner"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:text="From" />
+                android:orientation="horizontal" >
 
-            <Spinner
-                android:id="@+id/from_person_name_spinner"
-                android:layout_width="fill_parent"
+                <TextView
+                    android:id="@+id/add_amount_text"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="Amount"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/add_amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal" >
+
+                    <requestFocus />
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/add_from_person_name"
-                android:layout_below="@+id/to_group_name_spinner"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="25dp"
-                android:layout_toRightOf="@id/add_from_person_name"
-                android:drawSelectorOnTop="true" />
+                android:orientation="horizontal" >
 
-            <TextView
-                android:id="@+id/add_amount_text"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/add_loan_date_text"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="Loan Date"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/loan_date_picker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:onClick="chooseLoanDate"
+                    android:text="Set Date" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/add_from_person_name"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="25dp"
-                android:layout_toLeftOf="@+id/from_person_name_spinner"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:text="Amount" />
+                android:orientation="horizontal" >
 
-            <EditText
-                android:id="@+id/add_amount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/add_amount_text"
-                android:layout_below="@+id/from_person_name_spinner"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="25dp"
-                android:layout_toRightOf="@+id/add_amount_text"
-                android:ems="10"
-                android:inputType="numberDecimal" >
+                <TextView
+                    android:id="@+id/add_due_date_text"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="Due Date"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
 
-                <requestFocus />
-            </EditText>
-
-            <TextView
-                android:id="@+id/add_loan_date_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/add_amount_text"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="25dp"
-                android:layout_toLeftOf="@+id/add_amount"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:text="Loan Date" />
-
-            <Button
-                android:id="@+id/loan_date_picker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/add_loan_date_text"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="25dp"
-                android:layout_toRightOf="@+id/add_loan_date_text"
-                android:onClick="chooseLoanDate"
-                android:text="Set Date" />
-
-            <TextView
-                android:id="@+id/add_due_date_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/add_loan_date_text"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="25dp"
-                android:layout_toLeftOf="@+id/loan_date_picker"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:text="Due Date" />
-
-            <Button
-                android:id="@+id/due_date_picker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/add_due_date_text"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="25dp"
-                android:layout_toRightOf="@+id/add_due_date_text"
-                android:onClick="chooseDueDate"
-                android:text="Set Date" />
-
-            <TextView
-                android:id="@+id/add_loan_info_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/add_due_date_text"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="25dp"
-                android:layout_toLeftOf="@+id/due_date_picker"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:text="Loan Info" />
-
-            <EditText
-                android:id="@+id/add_loan_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/add_loan_info_label"
-                android:layout_below="@+id/add_loan_info"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="25dp"
-                android:layout_toRightOf="@+id/add_loan_info_label"
-                android:ems="10" >
-
-                <requestFocus />
-            </EditText>
-
-           
-
-        </RelativeLayout>
+                <Button
+                    android:id="@+id/due_date_picker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:onClick="chooseDueDate"
+                    android:text="Set Date" />
+            </LinearLayout>
+        </LinearLayout>
     </ScrollView>
-    <ImageButton
-        android:id="@+id/add_loan_confirm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="50dp"
-        android:layout_marginLeft="75dp"
-        android:contentDescription="Ok"
-        android:src="@drawable/ok" />
 
-    <ImageButton
-        android:id="@+id/add_loan_cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="30dp"
-        android:layout_toRightOf="@+id/add_loan_confirm"
-        android:contentDescription="Cancel"
-        android:src="@drawable/cancel" />
-
-</RelativeLayout>
+</LinearLayout>

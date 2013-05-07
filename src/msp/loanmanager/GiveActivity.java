@@ -126,11 +126,11 @@ public class GiveActivity extends Activity {
 		}
 		
 		// Adding person names & group names on Spinner
-		addToPersonsOnSpinner();
 		addFromPersonsOnSpinner();
+		addToPersonsOnSpinner();		
 		addGroupsOnSpinner();
 		  
-		ImageButton add = (ImageButton)findViewById(R.id.add_loan_confirm);
+		Button add = (Button)findViewById(R.id.add_loan_confirm);
 		add.setOnClickListener(new View.OnClickListener() {
 		     @Override
 		     public void onClick(View v) {
@@ -155,9 +155,9 @@ public class GiveActivity extends Activity {
 		    		 loan.setId(currentLoanId);
 		    	 }
 		    	 
-		    	 String toPersonName = String.valueOf(toPersonNameSpinner.getSelectedItem());
-		    	 String toGroupName = String.valueOf(toGroupNameSpinner.getSelectedItem());
 		    	 String fromPersonName = String.valueOf(fromPersonNameSpinner.getSelectedItem());
+		    	 String toPersonName = String.valueOf(toPersonNameSpinner.getSelectedItem());
+		    	 String toGroupName = String.valueOf(toGroupNameSpinner.getSelectedItem());		    
 		    	 
 		    	 int toPersonId = -1; 
 		    	 int toGroupId = -1; 
@@ -244,17 +244,17 @@ public class GiveActivity extends Activity {
 			
 		 });
 		
-		ImageButton cancel = (ImageButton)findViewById(R.id.add_loan_cancel);
-		cancel.setOnClickListener(new View.OnClickListener() {
-		     @Override
-		     public void onClick(View v) {
-		    	 isNewLoan = true;
-		    	 editLoan = null;
-		    	 currentLoanId = 0;
-		    	 Intent intent = new Intent(GiveActivity.this, MainMenuActivity.class);	
-				 startActivity(intent);
-		     }
-		 });
+//		ImageButton cancel = (ImageButton)findViewById(R.id.add_loan_cancel);
+//		cancel.setOnClickListener(new View.OnClickListener() {
+//		     @Override
+//		     public void onClick(View v) {
+//		    	 isNewLoan = true;
+//		    	 editLoan = null;
+//		    	 currentLoanId = 0;
+//		    	 Intent intent = new Intent(GiveActivity.this, MainMenuActivity.class);	
+//				 startActivity(intent);
+//		     }
+//		 });
 
 	}
 
@@ -386,6 +386,11 @@ public class GiveActivity extends Activity {
 		
 	}
 	
-	
+	@Override
+	protected void onPause() {					//	Function called before switching over the activity
+		// TODO Auto-generated method stub
+		super.onPause();
+		finish();							// We are trying to kill the old activity here ...
+	}
 	
 }
