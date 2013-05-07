@@ -18,6 +18,7 @@
         <activity
             android:name="msp.loanmanager.MainActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,63 +29,76 @@
         
         <activity 
             android:name="msp.loanmanager.AddPersonActivity"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar"  >
         </activity>
         <activity 
             android:name="msp.loanmanager.AddGroupActivity"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar"  >
         </activity>
         <activity
             android:name="msp.loanmanager.MainMenuActivity"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
         <activity
             android:name="msp.loanmanager.GroupListActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_group_list"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
         <activity
             android:name="msp.loanmanager.PersonListActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_person_list"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
         <activity
             android:name="msp.loanmanager.GiveActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_give"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
         <activity
             android:name="msp.loanmanager.PersonDescriptionActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_persons_describtion"
             android:theme="@android:style/Theme.Black.NoTitleBar"  >
         </activity>
         <activity
             android:name="msp.loanmanager.GroupDescriptionActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_group_description"
             android:theme="@android:style/Theme.Black.NoTitleBar"  >
         </activity>
         <activity
             android:name="msp.loanmanager.LoanDescriptionActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_loan_description"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
         <activity
             android:name="msp.loanmanager.PersonLoansActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_loan_description"
             android:theme="@android:style/Theme.Black.NoTitleBar"  >
         </activity>
         <activity
             android:name="msp.loanmanager.GroupLoansActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_loan_description"
             android:theme="@android:style/Theme.Black.NoTitleBar"  >
         </activity>
         <activity
             android:name="msp.loanmanager.SettledLoansActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_settled_loans"
             android:theme="@android:style/Theme.Black.NoTitleBar"  >
         </activity>
         <activity
             android:name="msp.loanmanager.UpcomingLoansActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_upcoming_loans"
             android:theme="@android:style/Theme.Black.NoTitleBar"  >
         </activity>
