@@ -6,12 +6,17 @@ import msp.action.DataHandler;
 import msp.action.Functions;
 import msp.object.Loan;
 import msp.object.Person;
+import msp.object.Result;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
@@ -22,14 +27,18 @@ import android.widget.TextView;
 
 
 public class PersonLoansActivity extends Activity {  
-	private DataHandler handler = new DataHandler();
-
+	
 	private int id;
+	private Context context;
+	private ArrayList<Loan> iloans = new ArrayList<Loan>();
+	private DataHandler handler = new DataHandler();
+	private String fileName = MainActivity.PATH + "l";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_person_loans);
+		context = this;
 		
 		Bundle extras = getIntent().getExtras();        
 
@@ -39,23 +48,23 @@ public class PersonLoansActivity extends Activity {
 		
 		// Fake loan
         //-=-=-=-=-=--=-=-=-=--=-=-=-=-=--=-=-=-=--=-=-=-=-=--=-=-=-=--=-=-=--=-=-=-=-
-		Loan loan = new Loan();
-		loan.setId(1000);
-		loan.setFromPersonId(MainActivity.me_ID);
-		loan.setToPersonId(1001);
-		loan.setSettled(false);
-		loan.setItemName("For sandwich");
-		loan.setAmount(200);
-		MainActivity.loans.add(loan);
-		
-		Loan loann = new Loan();
-		loann.setId(1001);
-		loann.setFromPersonId(1001);
-		loann.setToPersonId(1000);
-		loann.setSettled(false);
-		loann.setItemName("For 5 beers");
-		loann.setAmount(300);
-		MainActivity.loans.add(loann);
+//		Loan loan = new Loan();
+//		loan.setId(1000);
+//		loan.setFromPersonId(MainActivity.me_ID);
+//		loan.setToPersonId(1001);
+//		loan.setSettled(false);
+//		loan.setItemName("For sandwich");
+//		loan.setAmount(200);
+//		MainActivity.loans.add(loan);
+//		
+//		Loan loann = new Loan();
+//		loann.setId(1001);
+//		loann.setFromPersonId(1001);
+//		loann.setToPersonId(1000);
+//		loann.setSettled(false);
+//		loann.setItemName("For 5 beers");
+//		loann.setAmount(300);
+//		MainActivity.loans.add(loann);
 		//-=-=-=-=-=--=-=-=-=--=-=-=-=-=--=-=-=-=--=-=-=-=-=--=-=-=-=--=-=-=--=-=-=-=-
 		
 		
@@ -67,7 +76,8 @@ public class PersonLoansActivity extends Activity {
 			
 			if(((actloan.getFromPersonId() == MainActivity.me_ID && actloan.getToPersonId() == id) || (actloan.getFromPersonId() == id && actloan.getToPersonId() == MainActivity.me_ID)) && !actloan.isSettled()){
 				givenCounter++;
-				
+				iloans.add(actloan);
+			
 				TableRow tr = new TableRow(this);
 				TableLayout.LayoutParams tableRowParams = new TableLayout.LayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		     		
@@ -85,7 +95,7 @@ public class PersonLoansActivity extends Activity {
 	        	name.setLayoutParams(lineparams);
 	        	
 //	        	Person person = Functions.findPersonById(actloan.getToPersonId());
-	        	name.setText(actloan.getItemName());	        		            	
+	        	name.setText(actloan.getInfo());	        		            	
 	        	name.setTextSize(20);		            	            
 	            name.setTextColor(Color.BLACK);
 	            name.setGravity(Gravity.LEFT);
@@ -123,8 +133,65 @@ public class PersonLoansActivity extends Activity {
 		settle.setOnClickListener(new View.OnClickListener() {
 		     @Override
 		     public void onClick(View v) {		    	 
-		     //just toast or confirm.
-		     }
+		    	 LayoutInflater factory = LayoutInflater.from(context);
+					View dialoglayout = factory.inflate(R.layout.dialog_layout, null);
+							
+					Result results = Functions.getSettlingTransaction(iloans, id);
+					TableLayout tl = (TableLayout) dialoglayout.findViewById(R.id.dialog_table);
+
+					
+					TableRow tr = new TableRow(context);
+//						TableLayout.LayoutParams tableRowParams = new TableLayout.LayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+//			     		tr.setLayoutParams(tableRowParams);   
+		     		
+					TextView name1 = new TextView(context);
+//						LayoutParams infoparams = new TableRow.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+//						name1.setLayoutParams(infoparams);
+					Person p1 = Functions.findPersonById(results.getFromId());
+					name1.setText(p1.getName());
+					tr.addView(name1);
+
+					TextView name2 = new TextView(context);
+					Person p2 = Functions.findPersonById(results.getToId());
+					name2.setText(p2.getName());
+					tr.addView(name2);
+					
+					TextView amount = new TextView(context);					
+					amount.setText(Float.toString(results.getAmount()));
+					tr.addView(amount);				
+					
+					tl.addView(tr);
+							
+					
+					AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+
+					alertDialogBuilder.setTitle("Transaction for settling");
+					alertDialogBuilder
+							.setView(dialoglayout)
+							.setCancelable(false)
+							.setPositiveButton("Yes",
+									new DialogInterface.OnClickListener() {
+										public void onClick(DialogInterface dialog,	int id) {										
+											for(int i=0; i<iloans.size(); i++){
+												Functions.deleteLoan(iloans.get(i).getId());
+												iloans.get(i).setSettled(true);
+												MainActivity.loans.add(iloans.get(i));
+												handler.writeLoan(fileName + Integer.toString(iloans.get(i).getId()) , iloans.get(i));
+											}
+											PersonLoansActivity.this.finish();
+										}
+									})
+							.setNegativeButton("No",
+									new DialogInterface.OnClickListener() {
+										public void onClick(DialogInterface dialog,	int id) {										
+											dialog.cancel();
+										}
+									});
+
+					AlertDialog alertDialog = alertDialogBuilder.create();
+					alertDialog.show();
+
+				}
 		 });
 		
 		
