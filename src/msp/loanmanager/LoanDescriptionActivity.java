@@ -28,8 +28,7 @@ public class LoanDescriptionActivity extends Activity {
 		if (extras != null) {
 
 			id = extras.getInt("loan_id");
-			// Chose id as the fist Loan -- To be integrated later
-
+			
 			Loan loan = Functions.findLoanById(id);
 
 			if(null == loan) {
@@ -73,10 +72,10 @@ public class LoanDescriptionActivity extends Activity {
 				loanDate.setText(loan.getLoanDate());
 
 				TextView dueDate = (TextView)findViewById(R.id.due_date_value);
-				dueDate.setText(loan.getLoanDate());
+				dueDate.setText(loan.getLoanDue());
 
 				TextView comments = (TextView)findViewById(R.id.loan_info_value);
-				comments.setText(comments.getText());
+				comments.setText(loan.getInfo());
 
 				Button delete = (Button)findViewById(R.id.loan_button_delete);
 				Button edit = (Button)findViewById(R.id.loan_button_edit);

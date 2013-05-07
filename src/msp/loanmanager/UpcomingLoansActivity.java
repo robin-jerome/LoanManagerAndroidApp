@@ -107,13 +107,19 @@ public class UpcomingLoansActivity extends Activity {
 				if(null != loan.getLoanDue() && !"".equals(loan.getLoanDue().trim())){
 					Date dueDate;
 					try {
-						dueDate = new SimpleDateFormat("MM/dd/yyyy").parse(loan.getLoanDue());
+						dueDate = new SimpleDateFormat("dd/MM/yyyy").parse(loan.getLoanDue());
 					} catch (ParseException e) {
 						continue;
 					}
-					Date currDate = Calendar.getInstance().getTime();
-					if(currDate.getYear() == dueDate.getYear() && currDate.getMonth() == dueDate.getMonth()){
-						if(Math.abs(currDate.getDay()-dueDate.getDay()) <= UPCOMING_LOANS_DURATION){
+					
+					
+					Calendar currentCal = Calendar.getInstance();
+					
+					Calendar dueDateTime = Calendar.getInstance();
+					dueDateTime.setTime(dueDate);
+					
+					if(currentCal.get(Calendar.MONTH) == dueDateTime.get(Calendar.MONTH) && currentCal.get(Calendar.YEAR) == dueDateTime.get(Calendar.YEAR)){
+						if(Math.abs(currentCal.get(Calendar.DATE) - dueDateTime.get(Calendar.DATE)) <= UPCOMING_LOANS_DURATION){
 							upComingLoans.add(loan);
 						}
 					}

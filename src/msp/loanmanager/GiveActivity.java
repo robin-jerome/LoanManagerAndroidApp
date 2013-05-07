@@ -51,17 +51,17 @@ public class GiveActivity extends Activity {
 	
 	private Spinner toGroupNameSpinner;
 	
-	private boolean loanDateSetInProgress = false;
+	private static boolean loanDateSetInProgress = false;
 	
-	private boolean dueDateSetInProgress = false;
+	private static boolean dueDateSetInProgress = false;
 	
 	DateFormat formatDateTime = DateFormat.getDateTimeInstance();
 	
-	private Calendar dueDateTime = Calendar.getInstance();
+	private static Calendar dueDateTime = null;
 	
-	private Calendar loanDateTime = Calendar.getInstance();
+	private static Calendar loanDateTime = null;
 	
-	Calendar dateTime = Calendar.getInstance();
+//	Calendar dateTime = Calendar.getInstance();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -94,9 +94,12 @@ public class GiveActivity extends Activity {
 
 					Button dueDateButton = (Button)findViewById(R.id.due_date_picker);
 					dueDateButton.setText(editLoan.getLoanDue());
+					
 					try {
-						Date dueDate = new SimpleDateFormat("MM/dd/yyyy").parse(editLoan.getLoanDue());
-						dueDateTime.set(dueDate.getYear(), dueDate.getMonth(), dueDate.getDay());
+						Date dueDate = new SimpleDateFormat("dd/MM/yyyy").parse(editLoan.getLoanDue());
+						dueDateTime = Calendar.getInstance();
+						dueDateTime.setTime(dueDate);
+						
 					} catch (ParseException e) {
 						// Do nothing
 					}
@@ -104,8 +107,9 @@ public class GiveActivity extends Activity {
 					Button loanDateButton = (Button)findViewById(R.id.loan_date_picker);
 					loanDateButton.setText(editLoan.getLoanDate());
 					try {
-						Date loanDate = new SimpleDateFormat("MM/dd/yyyy").parse(editLoan.getLoanDate());
-						loanDateTime.set(loanDate.getYear(), loanDate.getMonth(), loanDate.getDay());
+						Date loanDate = new SimpleDateFormat("dd/MM/yyyy").parse(editLoan.getLoanDate());
+						loanDateTime = Calendar.getInstance();
+						loanDateTime.setTime(loanDate);
 					} catch (ParseException e) {
 						// Do nothing
 					}
@@ -113,9 +117,12 @@ public class GiveActivity extends Activity {
 
 			} else {
 				// This is a new loan
-				isNewLoan = true;
+				resetToNewLoan();
 				Util.showToastMessage(getApplicationContext(), "Creating new Loan");
 			}
+		} else {
+			resetToNewLoan();
+			Util.showToastMessage(getApplicationContext(), "Creating new Loan");
 		}
 		
 		// Adding person names & group names on Spinner
@@ -134,6 +141,8 @@ public class GiveActivity extends Activity {
 		    		 // loading values from previously selected loan
 		    		 loan = editLoan;
 		    		 currentLoanId = editLoan.getId();
+		    		 // Set value of loanDate and loanDueDate
+		    		
 		    	 } else {
 		    		 // Its a new Loan
 		    		 
@@ -172,8 +181,19 @@ public class GiveActivity extends Activity {
 		    	 loan.setToPersonId(toPersonId);
 		    	 loan.setFromPersonId(fromPersonId); 
 		    	 loan.setToGroupId(toGroupId);
-		    	 loan.setLoanDate(calendarAsString(loanDateTime));
-		    	 loan.setLoanDue(calendarAsString(dueDateTime));
+		    	 
+		    	 if(null != loanDateTime){
+		    		 loan.setLoanDate(calendarAsString(loanDateTime)); 
+		    	 } else {
+		    		 loan.setLoanDate("");
+		    	 }
+		    	 
+		    	 if(null != dueDateTime){
+		    		 loan.setLoanDue(calendarAsString(dueDateTime)); 
+		    	 } else {
+		    		 loan.setLoanDue("");
+		    	 }
+		    	 
 		    	 loan.setAmount(Float.valueOf(amount.getText().toString()));
 		    	 loan.setSettled(false);
 		    	 
@@ -191,6 +211,7 @@ public class GiveActivity extends Activity {
 		    		 dataHandler.writeLoan(loansFileName + Integer.toString(currentLoanId), loan);
 			    	 Log.i(TAG, "New Loan Written to file");
 			    	 Util.showToastMessage(getApplicationContext(),"Loan Added Successfully Id:"+currentLoanId);
+			    	 resetToNewLoan();
 			    	 Intent intent = new Intent(GiveActivity.this, MainActivity.class);	
 				     startActivity(intent);
 		    	 } else {
@@ -204,6 +225,7 @@ public class GiveActivity extends Activity {
 		    				 Log.i(TAG, "Loan file deleted Successfully");
 		    				 dataHandler.writeLoan(loansFileName + Integer.toString(currentLoanId), loan);
 		    				 Log.i(TAG, "New Loan Updated in file");
+		    				 resetToNewLoan();
 		    				 Util.showToastMessage(getApplicationContext(),"Loan Updated Successfully");
 		    				 Intent intent = new Intent(GiveActivity.this, MainActivity.class);	
 		    				 startActivity(intent);
@@ -213,6 +235,8 @@ public class GiveActivity extends Activity {
 
 		    	 }
 		     }
+
+			
 		 });
 		
 		ImageButton cancel = (ImageButton)findViewById(R.id.add_loan_cancel);
@@ -237,13 +261,17 @@ public class GiveActivity extends Activity {
 	}
 	
 	public void chooseLoanDate(View v){
+		Calendar dateTime = Calendar.getInstance();
 		loanDateSetInProgress=true;
     	new DatePickerDialog(GiveActivity.this, d, dateTime.get(Calendar.YEAR),dateTime.get(Calendar.MONTH), dateTime.get(Calendar.DAY_OF_MONTH)).show();
+    	
     }
 	
 	public void chooseDueDate(View v){
+		Calendar dateTime = Calendar.getInstance();
 		dueDateSetInProgress=true;
     	new DatePickerDialog(GiveActivity.this, d, dateTime.get(Calendar.YEAR),dateTime.get(Calendar.MONTH), dateTime.get(Calendar.DAY_OF_MONTH)).show();
+    	
     }
 	
 	private void addToPersonsOnSpinner() {
@@ -314,6 +342,7 @@ public class GiveActivity extends Activity {
 	DatePickerDialog.OnDateSetListener d=new DatePickerDialog.OnDateSetListener() {
 		@Override
 		public void onDateSet(DatePicker view, int year, int monthOfYear,int dayOfMonth) {
+			Calendar dateTime = Calendar.getInstance();
 			dateTime.set(Calendar.YEAR,year);
 			dateTime.set(Calendar.MONTH, monthOfYear);
 			dateTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
@@ -333,17 +362,25 @@ public class GiveActivity extends Activity {
 			}
 		}
 	};
-
-	protected String calendarAsString(Calendar dueDateTime2) {
+	
+	
+	protected String calendarAsString(Calendar dateTime) {
 		String calString = "";
-		if(null!=dueDateTime2){
-			calString = new SimpleDateFormat("MM/dd/yyyy").format(dueDateTime2.getTime());
+		if(null!=dateTime){
+			calString = new SimpleDateFormat("dd/MM/yyyy").format(dateTime.getTime());
 		}
 		return calString;
 	}
 	
+	private void resetToNewLoan() {
+		isNewLoan = true;
+    	editLoan = null;
+    	currentLoanId = 0;
+    	dueDateTime = null;
+		loanDateTime = null;
+		
+	}
 	
-
 	
 	
 }
