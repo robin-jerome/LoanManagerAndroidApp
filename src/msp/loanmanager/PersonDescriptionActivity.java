@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 import msp.action.DataHandler;
 import msp.action.Functions;
+import msp.action.Util;
 import msp.object.Group;
 import msp.object.Person;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -24,12 +26,14 @@ import android.widget.TextView;
 public class PersonDescriptionActivity extends Activity {
 
 	private int id;
-
+	private Context context;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_gp_description);
-
+		context = this;
+		
 		Bundle extras = getIntent().getExtras();
 
 		if (extras != null) {
@@ -64,6 +68,7 @@ public class PersonDescriptionActivity extends Activity {
 					Functions.deletePerson(id);
 					Intent intent = new Intent(PersonDescriptionActivity.this,
 							PersonListActivity.class);
+					Util.showToastMessage(context, "Person was deleted");
 					startActivity(intent);
 				}
 			});
@@ -73,7 +78,7 @@ public class PersonDescriptionActivity extends Activity {
 				public void onClick(View v) {
 					Intent intent = new Intent(PersonDescriptionActivity.this,
 							AddPersonActivity.class);
-					intent.putExtra("person_id", id);
+					intent.putExtra("person_id", id);					
 					startActivity(intent);
 				}
 			});
