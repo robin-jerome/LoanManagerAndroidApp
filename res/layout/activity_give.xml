@@ -20,13 +20,14 @@
             android:paddingLeft="10sp"
             android:text="Description "
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
+        
         <Button
             android:id="@+id/add_loan_confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Add" />
+            android:text=" Add " />
+        
     </LinearLayout>
 
     <ScrollView

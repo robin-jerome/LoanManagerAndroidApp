@@ -244,18 +244,6 @@ public class GiveActivity extends Activity {
 			
 		 });
 		
-//		ImageButton cancel = (ImageButton)findViewById(R.id.add_loan_cancel);
-//		cancel.setOnClickListener(new View.OnClickListener() {
-//		     @Override
-//		     public void onClick(View v) {
-//		    	 isNewLoan = true;
-//		    	 editLoan = null;
-//		    	 currentLoanId = 0;
-//		    	 Intent intent = new Intent(GiveActivity.this, MainMenuActivity.class);	
-//				 startActivity(intent);
-//		     }
-//		 });
-
 	}
 
 	
@@ -391,6 +379,14 @@ public class GiveActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onPause();
 		finish();							// We are trying to kill the old activity here ...
+	}
+	
+	@Override
+	public void onBackPressed() {
+		if(!isNewLoan){
+			resetToNewLoan();	
+		}
+		super.onBackPressed();
 	}
 	
 }
