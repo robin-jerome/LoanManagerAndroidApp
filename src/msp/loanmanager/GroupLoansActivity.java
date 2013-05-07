@@ -47,33 +47,6 @@ public class GroupLoansActivity extends Activity {
 			id = extras.getInt("group_id");
 		}
 
-		// Fake loan
-		// -=-=-=-=-=--=-=-=-=--=-=-=-=-=--=-=-=-=--=-=-=-=-=--=-=-=-=--=-=-=--=-=-=-=-
-//		Loan loan = new Loan();
-//		loan.setId(1000);
-//		loan.setFromPersonId(MainActivity.me_ID);
-//		loan.setToGroupId(1000);
-//		loan.setSettled(false);
-//		loan.setInfo("For sandwich");
-//		loan.setAmount(200);
-//		MainActivity.loans.add(loan);
-//		
-//		
-//		Loan loann = new Loan();
-//		loann.setId(1001);
-//		loann.setFromPersonId(1001);
-//		loann.setToGroupId(1000);
-//		loann.setSettled(false);
-//		loann.setInfo("For 5 beers");
-//		loann.setAmount(300);
-//		MainActivity.loans.add(loann);
-//				
-//		Person personn = new Person();
-//		personn.setId(1001);
-//		personn.setName("Roger");
-//		MainActivity.persons.add(personn);
-		// -=-=-=-=-=--=-=-=-=--=-=-=-=-=--=-=-=-=--=-=-=-=-=--=-=-=-=--=-=-=--=-=-=-=-
-
 		TableLayout tl = (TableLayout) findViewById(R.id.given_table);
 		int givenCounter = 0;
 

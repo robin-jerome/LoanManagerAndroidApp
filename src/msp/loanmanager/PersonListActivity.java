@@ -62,7 +62,7 @@ public class PersonListActivity extends Activity {
         	info.setText("You don't have any persons.");
         	LayoutParams infoparams = new TableRow.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
             info.setLayoutParams(infoparams);
-            info.setPadding(5, 5, 5, 5);
+            info.setPadding(20, 20, 20, 20);
         	info.setTextColor(Color.BLACK);
             tr.addView(info);	
             
@@ -78,9 +78,9 @@ public class PersonListActivity extends Activity {
 		            TableLayout.LayoutParams tableRowParams = new TableLayout.LayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 	         		
 		            if(i+1 == MainActivity.persons.size()){
-		            	tableRowParams.setMargins(0, 0, 0, 0);  
+		            	tableRowParams.setMargins(2, 2, 2, 0);  
 		            }else{
-		            	tableRowParams.setMargins(0, 0, 0, 5); 
+		            	tableRowParams.setMargins(2, 2, 2, 2); 
 		            } 
 		            
 	         		tr.setLayoutParams(tableRowParams);            
@@ -94,7 +94,7 @@ public class PersonListActivity extends Activity {
 	            	name.setTextSize(20);		            	            
 		            name.setTextColor(Color.BLACK);
 		            name.setGravity(Gravity.LEFT);
-		            name.setPadding(5, 0, 5, 0); 
+		            name.setPadding(20, 20, 20, 20); 
 		            tr.addView(name);	
 		          
 		            tr.setOnClickListener(new View.OnClickListener() {

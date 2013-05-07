@@ -45,28 +45,7 @@ public class PersonLoansActivity extends Activity {
         if (extras != null) {
             id = extras.getInt("person_id");               
         }
-		
-		// Fake loan
-        //-=-=-=-=-=--=-=-=-=--=-=-=-=-=--=-=-=-=--=-=-=-=-=--=-=-=-=--=-=-=--=-=-=-=-
-//		Loan loan = new Loan();
-//		loan.setId(1000);
-//		loan.setFromPersonId(MainActivity.me_ID);
-//		loan.setToPersonId(1001);
-//		loan.setSettled(false);
-//		loan.setItemName("For sandwich");
-//		loan.setAmount(200);
-//		MainActivity.loans.add(loan);
-//		
-//		Loan loann = new Loan();
-//		loann.setId(1001);
-//		loann.setFromPersonId(1001);
-//		loann.setToPersonId(1000);
-//		loann.setSettled(false);
-//		loann.setItemName("For 5 beers");
-//		loann.setAmount(300);
-//		MainActivity.loans.add(loann);
-		//-=-=-=-=-=--=-=-=-=--=-=-=-=-=--=-=-=-=--=-=-=-=-=--=-=-=-=--=-=-=--=-=-=-=-
-		
+	
 		
 		TableLayout tl = (TableLayout) findViewById(R.id.given_table);				
 		int givenCounter = 0;
@@ -192,8 +171,7 @@ public class PersonLoansActivity extends Activity {
 					alertDialog.show();
 
 				}
-		 });
-		
+		 });		
 		
 		if(givenCounter==0){
 			TableRow tr = new TableRow(this);
@@ -210,6 +188,9 @@ public class PersonLoansActivity extends Activity {
             tr.addView(info);	
             
             tl.addView(tr);		
+            
+			Button s = (Button) findViewById(R.id.settle_person_button);
+			s.setEnabled(false);
 		}		
 	}	
 }
