@@ -33,7 +33,7 @@ public class LoanDescriptionActivity extends Activity {
 
 			if(null == loan) {
 				Util.showToastMessage(getApplicationContext(), "Loan with Id:"+id+" not present");
-				Intent intent = new Intent(LoanDescriptionActivity.this, MainActivity.class);
+				Intent intent = new Intent(LoanDescriptionActivity.this, MainMenuActivity.class);
 				startActivity(intent);
 			
 			} else {
@@ -88,7 +88,7 @@ public class LoanDescriptionActivity extends Activity {
 						dh.removeFile(filename);
 						Functions.deleteLoan(id);
 						Util.showToastMessage(getApplicationContext(), "Deleting Loan with Id:"+id);
-						Intent intent = new Intent(LoanDescriptionActivity.this, MainActivity.class);
+						Intent intent = new Intent(LoanDescriptionActivity.this, MainMenuActivity.class);
 						startActivity(intent);
 					}
 				});

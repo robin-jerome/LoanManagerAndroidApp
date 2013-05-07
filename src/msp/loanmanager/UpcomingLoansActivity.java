@@ -48,10 +48,11 @@ public class UpcomingLoansActivity extends Activity {
 			
 			TableRow tr = new TableRow(this);
 			TableLayout.LayoutParams tableRowParams = new TableLayout.LayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-
+			tableRowParams.setMargins(2, 2, 2, 2);
 			tr.setId(actloan.getId());
 
 			tr.setLayoutParams(tableRowParams); 
+			tr.setBackgroundColor(Color.LTGRAY);
 			
 			TextView name = new TextView(this);            	
 			LayoutParams lineparams = new TableRow.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
@@ -59,20 +60,20 @@ public class UpcomingLoansActivity extends Activity {
 			
 			String loanDesc = "";
 			if(actloan.getFromPersonId()!= -1 && null != Functions.findPersonById(actloan.getFromPersonId())){
-				loanDesc = Functions.findPersonById(actloan.getFromPersonId()).getName() + " (P) ";
+				loanDesc = Functions.findPersonById(actloan.getFromPersonId()).getName() + " (P)";
 			}
 			
 			if(actloan.getToPersonId()!= -1 && null != Functions.findPersonById(actloan.getToPersonId())){
-				loanDesc += " =>" + Functions.findPersonById(actloan.getToPersonId()).getName() + " (P) ";
+				loanDesc += " => " + Functions.findPersonById(actloan.getToPersonId()).getName() + " (P)";
 			} else if(actloan.getToGroupId()!= -1 && null != Functions.findGroupById(actloan.getToGroupId())){
-				loanDesc += " =>" + Functions.findGroupById(actloan.getToGroupId()).getGroupName() + " (G) ";
+				loanDesc += " => " + Functions.findGroupById(actloan.getToGroupId()).getGroupName() + " (G)";
 			}
 			
 			name.setText(loanDesc);	        		            	
-			name.setTextSize(15);		            	            
+			name.setTextSize(17);		            	            
 			name.setTextColor(Color.BLACK);
 			name.setGravity(Gravity.LEFT);
-			name.setPadding(5, 0, 5, 0); 
+			name.setPadding(20, 20, 20, 20);
 			tr.addView(name);
 
 			TextView amount = new TextView(this);	     
@@ -81,9 +82,10 @@ public class UpcomingLoansActivity extends Activity {
 
 			amount.setText(Float.toString(actloan.getAmount()));
 			amount.setTextColor(Color.BLACK);
+			amount.setTextSize(17);
 			amount.setTypeface(Typeface.DEFAULT_BOLD);	
 			amount.setGravity(Gravity.RIGHT);
-			amount.setPadding(5, 0, 5, 0); 
+			amount.setPadding(20, 20, 20, 20); 
 			tr.addView(amount);	
 
 			tr.setOnClickListener(new View.OnClickListener() {

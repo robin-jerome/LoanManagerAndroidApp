@@ -212,7 +212,7 @@ public class GiveActivity extends Activity {
 			    	 Log.i(TAG, "New Loan Written to file");
 			    	 Util.showToastMessage(getApplicationContext(),"Loan Added Successfully Id:"+currentLoanId);
 			    	 resetToNewLoan();
-			    	 Intent intent = new Intent(GiveActivity.this, MainActivity.class);	
+			    	 Intent intent = new Intent(GiveActivity.this, MainMenuActivity.class);	
 				     startActivity(intent);
 		    	 } else {
 		    		 // Edit existing loan
@@ -227,7 +227,7 @@ public class GiveActivity extends Activity {
 		    				 Log.i(TAG, "New Loan Updated in file");
 		    				 resetToNewLoan();
 		    				 Util.showToastMessage(getApplicationContext(),"Loan Updated Successfully");
-		    				 Intent intent = new Intent(GiveActivity.this, MainActivity.class);	
+		    				 Intent intent = new Intent(GiveActivity.this, MainMenuActivity.class);	
 		    				 startActivity(intent);
 		    				 break;
 		    			 }
@@ -246,7 +246,7 @@ public class GiveActivity extends Activity {
 		    	 isNewLoan = true;
 		    	 editLoan = null;
 		    	 currentLoanId = 0;
-		    	 Intent intent = new Intent(GiveActivity.this, MainActivity.class);	
+		    	 Intent intent = new Intent(GiveActivity.this, MainMenuActivity.class);	
 				 startActivity(intent);
 		     }
 		 });
