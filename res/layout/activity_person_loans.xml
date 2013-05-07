@@ -16,8 +16,16 @@
 	   		 android:layout_width="wrap_content"
 	   		 android:layout_height="wrap_content"   
 	   		 android:gravity="left"	
+	   		 android:layout_weight="90"  
 	   		 android:textSize="20sp"      		
 	  		 android:text="Test"/>
+	    
+	    <Button
+	         android:id="@+id/settle_person_button"
+	         android:layout_width="wrap_content"
+	    	 android:layout_height="wrap_content"
+	    	 android:gravity="right"	 
+	    	 android:text="Settle" />
 
    </LinearLayout>
     
@@ -29,24 +37,11 @@
 	    <TableLayout 
 		   android:id="@+id/given_table"
 		   android:layout_width="match_parent"
-		   android:layout_height="wrap_content"
+		   android:layout_height="match_parent"
 		   android:stretchColumns="*" 
 		   android:shrinkColumns="*" >    
 	    </TableLayout>
 	    
 	</ScrollView>
-	
-    <LinearLayout 
-       android:layout_width="match_parent"
-	   android:layout_height="wrap_content"
-	   android:orientation="horizontal" >
-	    
-         <Button
-	         android:id="@+id/settle_person_button"
-	         android:layout_width="wrap_content"
-	    	 android:layout_height="wrap_content"
-	    	 android:gravity="left"	 
-	    	 android:text="Settle" />
-   </LinearLayout>
 	   
 </LinearLayout>
