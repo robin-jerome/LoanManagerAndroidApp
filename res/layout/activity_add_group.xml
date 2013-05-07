@@ -58,26 +58,6 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/add_group_choose_persons_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Choose persons"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#DDDDDD" />
-
-        <ScrollView
-            android:id="@+id/add_group_scroll"
-            android:layout_width="match_parent"
-            android:layout_height="200sp" >
-
-            <TableLayout
-                android:id="@+id/add_group_choose_persons_table"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-            </TableLayout>
-        </ScrollView>
-
-        <TextView
             android:id="@+id/add_group_info_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -90,6 +70,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine" />
+
+        <TextView
+            android:id="@+id/add_group_choose_persons_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose persons"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#DDDDDD" />
+
+        <ScrollView
+            android:id="@+id/add_group_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TableLayout
+                android:id="@+id/add_group_choose_persons_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </TableLayout>
+        </ScrollView>
     </LinearLayout>
 
 </LinearLayout>

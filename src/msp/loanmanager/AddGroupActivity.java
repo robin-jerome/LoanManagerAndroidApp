@@ -14,6 +14,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -41,7 +42,8 @@ public class AddGroupActivity extends Activity {
             info.setText(egroup.getInfo());	
         }
 		
-		TableLayout tl = (TableLayout) findViewById(R.id.add_group_choose_persons_table);
+        ScrollView sv = (ScrollView) findViewById(R.id.add_group_scroll);
+		TableLayout tl = (TableLayout) sv.findViewById(R.id.add_group_choose_persons_table);
 			
 		for(int i=0; i<MainActivity.persons.size(); i++){
 			TableRow tr = new TableRow(this);
