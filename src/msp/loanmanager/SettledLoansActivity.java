@@ -58,6 +58,12 @@ public class SettledLoansActivity extends Activity {
 				loanDesc += "=> " + Functions.findGroupById(actloan.getToGroupId()).getGroupName() + " (G) ";
 			}
 			
+			if (loanDesc.length() > 20) {
+				name.setText(loanDesc.substring(0, 16)+"...");
+			} else {
+				name.setText(loanDesc);
+			}
+			
 			name.setText(loanDesc);	        		            	
 			name.setTextSize(17);		            	            
 			name.setTextColor(Color.BLACK);

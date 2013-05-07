@@ -51,8 +51,17 @@ public class UpcomingLoansActivity extends Activity {
 			tableRowParams.setMargins(2, 2, 2, 2);
 			tr.setId(actloan.getId());
 
+			
+			
+			if (actloan.getFromPersonId() == MainActivity.me_ID) {
+				tr.setBackgroundColor(Color.rgb(152, 251, 152));
+			} else if (actloan.getToPersonId() == MainActivity.me_ID) {
+				tr.setBackgroundColor(Color.rgb(250, 128, 114));
+			} else {
+				tr.setBackgroundColor(Color.LTGRAY);
+			}
+			
 			tr.setLayoutParams(tableRowParams); 
-			tr.setBackgroundColor(Color.LTGRAY);
 			
 			TextView name = new TextView(this);            	
 			LayoutParams lineparams = new TableRow.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
@@ -69,7 +78,12 @@ public class UpcomingLoansActivity extends Activity {
 				loanDesc += " => " + Functions.findGroupById(actloan.getToGroupId()).getGroupName() + " (G)";
 			}
 			
-			name.setText(loanDesc);	        		            	
+			if (loanDesc.length() > 20) {
+				name.setText(loanDesc.substring(0, 16)+"...");
+			} else {
+				name.setText(loanDesc);
+			}
+				        		            	
 			name.setTextSize(17);		            	            
 			name.setTextColor(Color.BLACK);
 			name.setGravity(Gravity.LEFT);
