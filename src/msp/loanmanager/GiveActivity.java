@@ -245,13 +245,6 @@ public class GiveActivity extends Activity {
 		 });
 		
 	}
-
-	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.give, menu);
-        return true;
-	}
 	
 	public void chooseLoanDate(View v){
 		Calendar dateTime = Calendar.getInstance();

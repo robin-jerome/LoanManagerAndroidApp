@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import msp.action.DataHandler;
 import msp.action.Functions;
+import msp.action.Util;
 import msp.object.Group;
 import msp.object.Loan;
 import msp.object.Person;
@@ -182,6 +183,7 @@ public class PersonLoansActivity extends Activity {
 																			.getId()),
 													iloans.get(i));
 										}
+										Util.showToastMessage(context, "Loans were settled");
 										PersonLoansActivity.this.finish();
 									}
 								})

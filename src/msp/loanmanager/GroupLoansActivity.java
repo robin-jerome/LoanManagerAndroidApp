@@ -185,6 +185,7 @@ public class GroupLoansActivity extends Activity {
 											MainActivity.loans.add(iloans.get(i));
 											handler.writeLoan(fileName + Integer.toString(iloans.get(i).getId()) , iloans.get(i));
 										}
+										Util.showToastMessage(context, "Loans were settled");
 										GroupLoansActivity.this.finish();
 									}
 								})

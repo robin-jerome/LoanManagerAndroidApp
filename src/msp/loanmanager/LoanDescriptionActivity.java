@@ -107,10 +107,10 @@ public class LoanDescriptionActivity extends Activity {
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.loan_description, menu);
-		return true;
+	protected void onPause() { // Function called before switching over the
+								// activity
+		// TODO Auto-generated method stub
+		super.onPause();
+		finish(); // We are trying to kill the old activity here ...
 	}
-
 }
