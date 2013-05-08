@@ -93,11 +93,11 @@ public class Functions {
 		if(total >= 0){
 			result.setFromId(personId);
 			result.setToId(MainActivity.me_ID);
-			result.setAmount(total/2);
+			result.setAmount(total);
 		}else{
 			result.setFromId(MainActivity.me_ID);
 			result.setToId(personId);
-			result.setAmount(Math.abs(total)/2);
+			result.setAmount(Math.abs(total));
 		}
 		
 		return result;
