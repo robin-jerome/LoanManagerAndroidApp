@@ -15,19 +15,29 @@
             android:id="@+id/textView0"
             android:layout_width="0dip"
             android:layout_height="match_parent"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="80"
             android:gravity="center_vertical"
             android:paddingLeft="10sp"
             android:text="Description "
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-        
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000000"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
         <Button
             android:id="@+id/add_loan_confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:text=" Add " />
-        
     </LinearLayout>
 
     <ScrollView
@@ -44,20 +54,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
-
-                <TextView
-                    android:id="@+id/add_loan_info_label"
-                    android:layout_width="80dp"
+                <TextView 
+                    android:id="@+id/add_loan_info_label" 
+                    android:layout_width="80dp" 
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:text="Loan Info"
-                    android:textColor="#000000"
-                    android:textStyle="bold" />
+                    android:layout_marginLeft="15dp" 
+                    android:text="Loan Info" 
+                    android:textColor="#000000" 
+                    android:textStyle="bold"/>
 
                 <EditText
                     android:id="@+id/add_loan_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="10dp"
                     android:ems="10" >
@@ -84,9 +94,11 @@
                     android:id="@+id/from_person_name_spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="10dp"
                     android:drawSelectorOnTop="true" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -107,9 +119,11 @@
                     android:id="@+id/to_person_name_spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="10dp"
                     android:drawSelectorOnTop="true" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -130,9 +144,11 @@
                     android:id="@+id/to_group_name_spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="10dp"
                     android:drawSelectorOnTop="true" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -153,6 +169,7 @@
                     android:id="@+id/add_amount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="10dp"
                     android:ems="10"
@@ -180,10 +197,12 @@
                     android:id="@+id/loan_date_picker"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="10dp"
                     android:onClick="chooseLoanDate"
                     android:text="Set Date" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -204,12 +223,15 @@
                     android:id="@+id/due_date_picker"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="10dp"
                     android:onClick="chooseDueDate"
                     android:text="Set Date" />
+
             </LinearLayout>
         </LinearLayout>
+
     </ScrollView>
 
 </LinearLayout>

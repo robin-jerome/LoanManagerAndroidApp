@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff00ff"
+    android:background="#DCEBFC"
     android:orientation="vertical"
     tools:context=".PersonDescriptionActivity" >
 
@@ -15,22 +15,37 @@
             android:id="@+id/textView0"
             android:layout_width="0dip"
             android:layout_height="match_parent"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="80"
             android:gravity="center_vertical"
             android:paddingLeft="10sp"
             android:text="Description "
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000000"
+            android:textSize="30dp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/gp_button_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:text="Edit" />
 
         <Button
             android:id="@+id/gp_button_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:text="Delete" />
     </LinearLayout>
 
@@ -43,9 +58,11 @@
             android:id="@+id/tvTitleBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
             android:text="Test:  "
-            android:textColor="#19FCDA"
-            android:textSize="22sp" />
+            android:textColor="#000000"
+            android:textSize="22dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/gp_name"
@@ -53,37 +70,45 @@
             android:layout_height="wrap_content"
             android:text="Large Text"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#DDDDDD" />
+            android:textColor="#000000" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
         android:text="Additional information"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#19FCDA" />
+        android:textColor="#000000"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/gp_additional_information"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
         android:text="No addtitional information."
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#DDDDDD" />
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/gp_title_table"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
         android:text="test"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#19FCDA" />
+        android:textColor="#000000"
+        android:textStyle="bold" />
 
     <ScrollView
         android:id="@+id/member_of_group_scroll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp" >
 
         <TableLayout
             android:id="@+id/member_of_group"

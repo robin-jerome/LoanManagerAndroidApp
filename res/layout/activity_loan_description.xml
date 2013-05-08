@@ -15,6 +15,10 @@
             android:id="@+id/textView0"
             android:layout_width="0dip"
             android:layout_height="match_parent"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="80"
             android:gravity="center_vertical"
             android:paddingLeft="10sp"
@@ -26,6 +30,10 @@
             android:id="@+id/loan_button_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="6.04"
             android:text="Edit" />
 
@@ -33,6 +41,10 @@
             android:id="@+id/loan_button_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:text="Delete" />
     </LinearLayout>
 

@@ -32,8 +32,11 @@
             android:id="@+id/upcoming_loans_table"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:shrinkColumns="*"
             android:stretchColumns="*" >
+
         </TableLayout>
     </ScrollView>
 
